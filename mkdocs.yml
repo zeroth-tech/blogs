@@ -1,0 +1,22 @@
+site_name: Zeroth blogs
+theme:
+  name: material
+  palette:
+    - scheme: default 
+      primary: light blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/zeroth-tech
+
+copyright: Copyright &copy; 2024 Zeroth Technology, Inc. All rights reserved.
