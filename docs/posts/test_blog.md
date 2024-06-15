@@ -10,8 +10,7 @@ categories:
 tags:
   - tokenization
   - supply chain
-comments_off: 
-  - true
+comments: true
 ---
 
 
