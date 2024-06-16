@@ -30,6 +30,9 @@ theme:
     tag:
       supply: octicons/package-dependents-16
       token: fontawesome/solid/coins
+      worlds: octicons/globe-16
+      
+
     admonition:
       note: octicons/tag-16
       abstract: octicons/checklist-16
@@ -51,6 +54,7 @@ extra:
   tags:
     supply chain: supply
     tokenization: token
+    autonomous worlds: worlds
   
 
 plugins:

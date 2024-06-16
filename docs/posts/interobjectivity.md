@@ -23,7 +23,7 @@ Let me share with you a fun little rabbit hole I jumped into the other weekend a
 
 First of all the word interobjectivity is a very rarely used outside of social sciences, and there seem to be several formal definitions of it.  From my limited research, the word first popped up in 1996 by the French philosopher [Bruno Latour](https://en.wikipedia.org/wiki/Bruno_Latour)  His paper “On Interobjectivity”[^1].  Which is a fascinating foray into the mating habits of baboons and a drawn out example of him talking through a metal grate in order to buy postage stamps.  But within the 20 pages of philosophical prose there is a theorem there - humans (unlike other species) have a special kind of relationship with objects, we can use them to execute our intent even when we are not around.  Latour uses an example of a shepherd that builds a fence.  Previously the shepherd would need to constantly roam around and herd his sheep to keep them in position, now instead of the shepherd needing to interact with the sheep directly the fence does it for him and he can take a nap.   The relationship between the shepherd and the fence is interobjective, because of the fence's permanence it allows the shepherd to extend his influence on the actions of others (in this case the sheep) even while he is asleep, or (depending on how well he built the fence) long after he is gone.
 
-Oddly enough, though the paper is titled "On Interobjectivity" Latour does not actually define the term (or perhaps he did in the original French)... Later a grad student contributing to the "Human Geography Knowledge Base" gave interobjectivity the definition of: "the common world of experience and meaning which is shared by groups of people _and_ objects. "[^2] 
+Oddly enough, though the paper is titled "On Interobjectivity" Latour does not actually define the term (or perhaps he did in the original French)... Later a grad student contributing to the "Human Geography Knowledge Base" gave interobjectivity the definition of: "the common world of experience and meaning which is shared by groups of people *and* objects. "[^2]
 
 The most official definition I could find was in the Encyclopedia of Critical Psychology and states that "The concept of interobjectivity has been introduced and developed in the social sciences to account for the non-conscious engagement in the course of social interaction that occurs within a social field that is phenomenally objective for subjects and that includes interactions with objects." [^3] A full write up of this definition can be found [here.](https://www.um.edu.mt/library/oar/bitstream/123456789/82869/1/Interobjectivity_2014.pdf) This probably makes sense to psychologists, but was a little murky for me.  Though it is pretty clear that the root of the word (objective) is referring to being able to sense something physical.
 
@@ -31,7 +31,7 @@ Unfortunately I don't think the existing definition extends very well into how w
 
 This flows nicely from the definition of intersubjectivity which is a word and has been well defined and discussed in many sociology journals. The short definition is "the intersection or relation between the cognitive perspectives of individuals".  Interobjectivity places an object in between the individuals.
 
-!!! Note
+!!! info
     Recently intersubjectivity made an appearance in crypto circles in EigenLayer's white paper describing the EIGEN token as an “intersubjective work token” basically saying that you can post some EIGEN as a bond to do some work that isn’t particularly easy to measure. Later, if two or more reasonable people agree that you didn’t do said work, you can lose your bond.  Thus widening the aperture of what a work token can be used for the current objective measures.
 
     *This really has nothing to do with what we are discussing here, but it is an interesting reference.*
@@ -74,16 +74,16 @@ But both the law and the rules are just code running on some computer.  One cann
 
 The other point that Dixon repeatedly makes (and I think is the most important aspect of blockchain in the context of interobjective autonomous worlds) is the unique ability of blockchain to make grantees about future execution of rules - only in a decentralized blockchain can you know that the laws and rules that exist today today will run the same way tomorrow - which makes them uniquely suited for enforcing natural laws.  In the context of interobjectivity this cannot be understated.  In the physical world I can build a fence to keep the sheep in, and I know that because the sheep can't defy gravity they are going to be bound by the fence.  In my digital world I need a guarantee that gravity is going to remain constant if I'm to use the same concept of an object (the fence) to control the sheep.
 
-And it's not just constants (which are the parameters) it's the actual execution of the math.  Different computers do math differently - mostly because of the difficulty in handling floating-point precision and various short cuts that computers can take to perform frequently used functions.  If you are looking for another rabbits hole to jump into, [this](https://www.reddit.com/r/askscience/comments/1oqxfr/how_do_computers_do_math/) old reddit thread is pretty fascinating.  Most of the time these differences are minute, but they can stack up.  Well designed blockchains execute on a wide array of hardware and software clients so there are always multiple nodes "checking the math".
+And it's not just constants (which are the parameters) it's the actual execution of the math.  Different computers do math differently - mostly because of the difficulty in handling floating-point precision and various short cuts that computers can take to perform frequently used functions.  If you are looking for another rabbits hole to jump into, [this old reddit thread](https://www.reddit.com/r/askscience/comments/1oqxfr/how_do_computers_do_math/) is pretty fascinating.  Most of the time these differences are minute, but they can stack up.  Well designed blockchains execute on a wide array of hardware and software clients so there are always multiple nodes "checking the math".
 
 !!! abstract "Interobjective Autonomous World needs 3 things:"
-    1) A set of deterministic natural laws enforced via protocols
+    1. A set of deterministic natural laws enforced via protocols
 
-    2) A set of rules that can be opted into by players and maintained through governance
-    
-    3) Guarantees about the consistency in future execution of 1 & 2
+    2. A set of rules that can be opted into by players and maintained through governance
 
-## A Physical World Bound by Virtual Laws...
+    3. Guarantees about the consistency in future execution of 1 & 2
+
+## A Physical World Bound by Virtual Laws'...'
 
 I usually write about supply chains and enterprise blockchain use cases.  So far this rant has been about obscure sociology papers and video games… is there a connection?
 
@@ -95,7 +95,7 @@ Yeah, absolutely.  We shouldn't be surprised that gamers are leading the charge 
 >
 >**supplier:** "hmm... well that's not exactly the same.  Lets just keep checking to see if the sheep can get out"
 >
->**Customer:**  "sounds good, I'll go hire an auditor"
+>**customer:**  "sounds good, I'll go hire an auditor"
 
 Think about how different global supply chain would be if for certain business transactions the settlement was occurring in an interobjective autonomous world?  The areas of friction could be eliminated because the double checking that needed to occur between systems (or that requires an intermediary) could be eliminated.
 
@@ -113,8 +113,7 @@ The notion of interobjectivity is exciting in the context of autonomous worlds, 
 
 ## References
 
->[^1] Latour, B. (1996), On interobjectivity. In: Mind, culture and activity. Volume 3, number 4. Retrieved from Scribd.com, Friday May 31st 2024. https://www.scribd.com/document/277023110/Bruno-Latour-On-interobjectivity-Mind-Culture-and-Activity-1996
->[^2] https://geography.ruhosting.nl/geography/index.php?title=Interobjectivity
->[^3] Sammut, G., Moghaddam, F. (2014). Interobjectivity. In: Teo, T. (eds) Encyclopedia of Critical Psychology. Springer, New York, NY. https://doi.org/10.1007/978-1-4614-5583-7_158
->[^4] https://www.merriam-webster.com/dictionary/objective
->[^5] **Dixon, Chris.** _Read Write Own: Building the Next Era of the Internet_. Random House Publishing Group, 2024.
+[^1]: Latour, B. (1996), On interobjectivity. In: Mind, culture and activity. Volume 3, number 4. Retrieved from Scribd.com, Friday May 31st 2024. <https://www.scribd.com/document/277023110/Bruno-Latour-On-interobjectivity-Mind-Culture-and-Activity-1996>
+[^2]: <https://geography.ruhosting.nl/geography/index.php?title=Interobjectivity>
+[^3]: Sammut, G., Moghaddam, F. (2014). Interobjectivity. In: Teo, T. (eds) Encyclopedia of Critical Psychology. Springer, New York, NY. <https://doi.org/10.1007/978-1-4614-5583-7_158>
+[^4]: **Dixon, Chris.** Read Write Own: Building the Next Era of the Internet_. Random House Publishing Group, 2024.

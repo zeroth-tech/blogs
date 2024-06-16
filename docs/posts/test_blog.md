@@ -4,7 +4,7 @@ authors:
 date:
   created: 2023-12-31
   updated: 2024-05-14
-draft: false
+draft: true
 categories:
   - supply
 tags:
@@ -28,6 +28,7 @@ tempor incididunt ut labore et dolore magna aliqua.
 I'm writing some math here $k + E_n = 0$
 
 what about flow charts?
+
 ``` mermaid
 graph LR
   A[Start] --> B{Error?};
@@ -37,6 +38,5 @@ graph LR
   B ----> |no| E[Yay!];
 ```
 
-
-
-
+>[!Note]
+>second note
