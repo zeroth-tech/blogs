@@ -6,7 +6,7 @@ date:
   updated: 2024-05-14
 draft: true
 categories:
-  - supply
+  - Supply Chain
 tags:
   - tokenization
   - supply chain

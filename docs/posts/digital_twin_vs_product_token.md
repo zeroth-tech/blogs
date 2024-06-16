@@ -5,7 +5,7 @@ date:
   created: 2023-11-01
 draft: false
 categories:
-  - supply chain
+  - Supply Chain
 tags:
   - tokenization
   - supply chain

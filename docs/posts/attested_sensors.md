@@ -6,7 +6,7 @@ date:
   updated: 2023-11-29
 draft: false
 categories:
-  - attestation
+  - Attestation
 tags:
   - attested sensors
 comments: true
