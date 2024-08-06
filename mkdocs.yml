@@ -135,4 +135,7 @@ extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 
-copyright: Copyright &copy; 2024 Zeroth Technology, Inc. All rights reserved.
+copyright: >
+  Copyright &copy; 2024 Zeroth Technology, Inc. All rights reserved.
+  <a href="#__consent">Change cookie settings</a>
+
