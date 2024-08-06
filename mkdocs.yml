@@ -64,7 +64,7 @@ extra:
       make our blog better.
   analytics:
     provider: google
-    property: G-GPG49PHF72
+    property: G-3LHYGRXZ4Q
 
 plugins:
   - search:
