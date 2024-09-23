@@ -55,7 +55,16 @@ extra:
     supply chain: supply
     tokenization: token
     autonomous worlds: worlds
-  
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our blog content and whether readers
+      find what they're searching for. With your consent, you're helping us to
+      make our blog better.
+  analytics:
+    provider: google
+    property: G-3LHYGRXZ4Q
 
 plugins:
   - search:
@@ -126,4 +135,7 @@ extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 
-copyright: Copyright &copy; 2024 Zeroth Technology, Inc. All rights reserved.
+copyright: >
+  Copyright &copy; 2024 Zeroth Technology, Inc. All rights reserved.
+  <a href="#__consent">Change cookie settings</a>
+
