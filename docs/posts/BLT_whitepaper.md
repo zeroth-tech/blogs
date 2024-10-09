@@ -6,7 +6,7 @@ authors:
 date:
   created: 2024-08-01
   updated: 2024-09-24
-draft: true
+draft: false
 categories:
   - Attestation
 tags:
@@ -34,7 +34,7 @@ This white paper introduces the Blinky Light Thingy (BLT), a novel approach for 
 
 ## Abstract
 
-We propose an approach for real-time video authentication in live-streaming environments. The approach, referred to as the BLT, embeds cryptographic messages into the physical environment being recorded, making it difficult to modify the video feed in real-time and avoiding the reliance on specialized trusted hardware. This approach addresses the growing challenge of distinguishing between authentic and generative content, particularly in the context of live video streams where it is becoming more common place for someone to "wear" the filter of another person and perpetuate fraud in what is typically considered a trusted environment. By utilizing Ethereum Attestation Services, a "do-it-yourself" hardware device, and open sourced encoding/decoding software, BLT provides a robust method for verifying both the identity of the presenter and the contemporaneousness (real-time nature) of the content.
+We propose an approach for real-time video authentication in live-streaming environments. The approach, referred to as the BLT, embeds cryptographic messages into the physical environment being recorded, making it difficult to modify the video feed in real-time and avoiding the reliance on specialized trusted hardware. This approach addresses the growing challenge of distinguishing between authentic and generative content, particularly in the context of live video streams where it is becoming more common place for someone to "wear" the filter of another person and perpetuate fraud in what is typically considered a trusted environment. By utilizing Ethereum Attestation Services, a "do-it-yourself" hardware device, and open sourced encoding/decoding software, BLT provides a robust method for verifying both the identity of the presenter and the real-time nature of the content.
 
 ![BLT Overview](./BLT_whitepaper/BLT_Overview.png)
 
@@ -72,8 +72,8 @@ The primary objectives of the BLT approach are:
 
 The BLT approach introduces cryptographic elements into the physical environment being recorded. This is achieved by:
 
-1. Obtaining a unique identifier (UID) from Ethereum Attestation Services (EAS) [^2] which includes specific information about the encrypted message within the live-stream and is signed using the presenters address.  The creation of a UID is dependent upon the nonce of the block in which it is created making the UID impossible to predict ahead of time.
-2. Broadcasting this UID by converting it to a binary string and blinking a light  into the physical environment during the live stream.
+1. Obtaining a unique identifier (UID) from Ethereum Attestation Services (EAS) [^2] which includes specific information about the encrypted message within the live-stream and is signed using the presenter's address.  The creation of a UID is dependent upon the nonce of the block in which it is created, making the UID impossible to predict ahead of time.
+2. Broadcasting this UID by converting it to a binary string and blinking a light into the physical environment during the live stream.
 3. Enabling viewers to decode the message and match it to the attestation through pixel analysis.
 
 This approach makes it extremely difficult to modify the video feed in real-time, as:
@@ -94,10 +94,10 @@ Our approach is guided by the following principles:
 
 The software component of the BLT system consists of several key elements:
 
-1. **BLT Configuration**: Establishes a baseline of pixel composition to optimize BLT performance.  It utilizes your webcam and is intended to be run before each broadcast session to ensure that your message can be verified by your audience, it leverages the webcam you plan to use to present, and assumes that your background and lighting will not change significantly.  During the configuration test a predetermined test massage is passed to the device and blinked out for detection.  The user has the option to configure the following parameters of the BLT device to optimize the detection rate (or similarity score) of your planned broadcast message:
+1. **BLT Configuration**: Establishes a baseline of pixel composition to optimize BLT performance.  It utilizes your webcam and is intended to be run before each broadcast session to ensure that your message can be verified by your audience. It leverages the webcam you plan to use to present, and assumes that your background and lighting will not change significantly.  During the configuration test, a predetermined test message is passed to the device and blinked out for detection.  The user has the option to configure the following parameters of the BLT device to optimize the detection rate (or similarity score) of your planned broadcast message:
 
       - Message Color: The color LED selected to represent the message being broadcast.
-      - Terminator Color: the color LED selected to represent the beginning of the message broadcast or the beginning of a message broadcast chunk.
+      - Terminator Color: The color LED selected to represent the beginning of the message broadcast or the beginning of a message broadcast chunk.
       - Blink Rate: The period for which the message color LED is either lit or unlit (blinked) representing either a 1 or a 0 respectively.
       - Message Chunks: A selection of either 1, 2, 4, 8 that indicates the number of "chunks" the broadcast message will be split into.  See [Message Chunking](#message-chunking) below for more details.
 
@@ -148,7 +148,7 @@ The software design of the BLT system is based on the following components:
 
 ### Message Chunking
 
-A 64 character hexadecimal string converted to a binary string that can be "blinked out" is 256 characters in length plus any terminator signals that might be added.  To match an encoded string to a detected message with 100% similarity the individual bits must be completely aligned.  There is a $1:2^256$ probability of a random string matching the encoded message.  However, this can be difficult to do for long strings because the detector may miss the starting point.  To reduce this risk, and to give more frequent feedback on the detection success, an encoded message can be "chunked" in to equal substrings of lengths 128, 64, or 32 characters; creating either 1, 2, 4, or 8 chunks.  The drawback of this approach is that when matching a detected chunk to an expected chunk, one must check each chunk for similarity.  Further because the odds of correctly guessing a binary string scale exponentially as $2^{stringLenght}$ having larger chunks is more secure.  However, if it can be shown that a match is made in chunk 1, followed by chunk 2,3 & 4 it is effectively the same as matching the full 256 length string.
+A 64 character hexadecimal string converted to a binary string that can be "blinked out" is 256 characters in length plus any terminator signals that might be added.  To match an encoded string to a detected message with 100% similarity, the individual bits must be completely aligned.  There is a $1:2^{256}$ probability of a random string matching the encoded message.  However, this can be difficult to do for long strings because the detector may miss the starting point.  To reduce this risk, and to give more frequent feedback on the detection success, an encoded message can be "chunked" into equal substrings of lengths 128, 64, or 32 characters; creating either 1, 2, 4, or 8 chunks.  The drawback of this approach is that when matching a detected chunk to an expected chunk, one must check each chunk for similarity.  Further, because the odds of correctly guessing a binary string scale exponentially as $2^{stringLength}$, having larger chunks is more secure.  However, if it can be shown that a match is made in chunk 1, followed by chunks 2, 3 & 4, it is effectively the same as matching the full 256 length string.
 
 ### Blink Detection
 
@@ -193,7 +193,12 @@ The dedicated hardware consists of:
 4. **Switch**: To turn on/off the power to the device.
 5. **Mounting System**: Allows for easy positioning and directing of the light source.
 
-![BLT Circuit Diagram](./BLT_whitepaper/BLT_Circuit3.7v.drawio.svg)
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <img src="./BLT_whitepaper/BLT_Circuit3.7v.drawio.svg" alt="BLT Circuit Diagram" style="width: 32%;">
+  <img src="./BLT_whitepaper/BLT%20Case%20Option%202.png" alt="BLT Case Option 2" style="width: 32%;">
+  <img src="./BLT_whitepaper/BLT%20Case%20Option%203.png" alt="BLT Case Option 3" style="width: 32%;">
+</div>
 
 ## 6. Build
 
@@ -203,11 +208,13 @@ For those unable to use a dedicated BLT device, a smartphone or computer screen 
 
 ## 7. Results
 
-Using a BLT device built from an ESP32C microcontroller, a 3.7v LiPo battery, a red, green, and a blue LED and matching resistors as shown in the circuit diagram we tested the BLT in various lighting conditions and with various configurations.  A test hex string of:
+![BLT In Real Life](./BLT_whitepaper/BLT%20IRL.png)
+![BLT In Real Life](./BLT_whitepaper/BLT3%20IRL%20.png)
+Using a BLT device built from an ESP32C microcontroller, a 3.7v LiPo battery, a red, green, and a blue LED and matching resistors as shown in the circuit diagram, we tested the BLT in various lighting conditions and with various configurations.  A test hex string of:
 
 >AAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCF0F0F0F0F0F0F0F0FF00FF00FF00FF00
 
-was used  which converts to a binary string of:
+was used, which converts to a binary string of:
 >1010101010101010101010101010101010101010101010101010101010101010
 >1100110011001100110011001100110011001100110011001100110011001100
 >1111000011110000111100001111000011110000111100001111000011110000
@@ -215,7 +222,7 @@ was used  which converts to a binary string of:
 
   This string was designed to give a wide variation between rapid blinks (on/off/on/off) and successive blinks (on/on/on/on/off/off/off/off) to determine if the verification module was sensitive enough to capture both.
 
-A baseline detection was done in an indoor room steady ambient light (a scenario most likely to be similar to an office or work room).  Using a blink rate of 100 milliseconds, a sample rate of 50 milliseconds, message chunks of 4, the blue LED for the message and, the green LED for the terminator we were able to achieve a consistent 90+ similarity match across the four chunks below is an example out put of a verification that ran for about 2 minutes. The message detection rate is a measure of the possible number of messages to be detected in a given time frame vs. the actual number of messages detected (these are reported as X out of X).  Note that if detection of a broadcast message starts midway through a message chunk and ends midway through a message it may be perfectly reasonable to have "missed" the beginning and ending message chunk therefore the target is to detect the total possible message chunks minus 2.
+A baseline detection was done in an indoor room with steady ambient light (a scenario most likely to be similar to an office or work room).  Using a blink rate of 100 milliseconds, a sample rate of 50 milliseconds, message chunks of 4, the blue LED for the message, and the green LED for the terminator, we were able to achieve a consistent 90+ similarity match across the four chunks. Below is an example output of a verification that ran for about 2 minutes. The message detection rate is a measure of the possible number of messages to be detected in a given time frame vs. the actual number of messages detected (these are reported as X out of X).  Note that if detection of a broadcast message starts midway through a message chunk and ends midway through a message, it may be perfectly reasonable to have "missed" the beginning and ending message chunk; therefore, the target is to detect the total possible message chunks minus 2.
 
 *Average Similarity: 0.91*
 
@@ -228,7 +235,7 @@ A baseline detection was done in an indoor room steady ambient light (a scenario
 | [3]1111000011110000111100001111000011110000111100001111000011110000 | 4     | 0.94       | 4:5               |
 | [4]1111111100000000111111110000000011111111000000001111111100000000 | 4     | 0.98       | 4:5               |
 
-In this configuration the message will broadcast every 26.8 second or 4.47 times in two minutes.  Note that chunks 1 and 2 were detected 5 times where as 3 and 4 were detected 4, this indicates that the test was stopped midway through the 5th broadcast.  As out target is a similarity score of .7 or greater this baseline is considered a success.
+In this configuration, the message will broadcast every 26.8 seconds or 4.47 times in two minutes.  Note that chunks 1 and 2 were detected 5 times where as 3 and 4 were detected 4, this indicates that the test was stopped midway through the 5th broadcast.  As out target is a similarity score of .7 or greater this baseline is considered a success.
 
 Below is a summary of our observations when testing various configurations:
 
@@ -238,7 +245,7 @@ Below is a summary of our observations when testing various configurations:
 4. **Faster Blink Rate**: Reducing the blink rate by 50% (to 50 ms) and reducing the sample rate to 25 ms resulted in a significant drop in similarly score to 50%.  Of specific note was that a number of encoded messages were missed and that the chunk one (consisting of rapid 0101 blinks) was the most likely to be detected.
 5. **Slower Blink Rate**: Blink rates of 200ms and 400ms both returned average similarity scores of 0.96 and 0.98 respectively indicating that longer blinks are easier to detect.  However it was noted that this also increases the time it takes to broadcast an entire message completely, a 400ms takes 1.15 minutes.  Conclusion:  The trade off between a slightly higher similarity score versus a longer message time (and less opportunity for the message to broadcast multiple times) indicates that a slow blink rate should only be used to offset poor lighting conditions.
 6. **Faster Sample Interval**: Reducing the sample interval had the effect of expanding the detected message (similar to increasing the chunk length).  This resulted in less detected messages reaching the minimum length to be matched.  It also introduced more variance detection, for example if lighting conditions caused an increase in green pixels for even a short amount of time the lower sample interval was more likely to pick it up and indicated a false positive termination blink.  Conclusion: In theory a faster sample interval should result in better matches, however we would need to refine our matching algorithm to take this into account.  Considering that faster sample intervals also require more frequent processing this path may not be worth pursuing.
-7. **Different Ambient Lighting Conditions**: Lighting has the single largest effect on the the ability to detect the broadcast message (as expected).  The BLT blinks LEDs that reflect off of the presenters face while presenting.  It follows that high levels of white light also reflecting off of the presenter, or directly shining into the web cam will reduce the detectable blinks.  In stable lighting conditions we found that the BLT could be positioned in such a way that the message can be detected in most scenarios, but in changing lighting conditions (such as outdoors) it was much more difficult.  Similarly different skin reflectivity[^4] effects blink detection.  The reflectance of skin varies based on factors like melanin content, blood flow, and hydration levels.  For fun we also tested the BLT in a dark room - the results were a perfect similarity score.  Conclusion: Future enhancements are expected to greatly improve the range of conditions in which the BLT can operate effectively - different configurations discussed in the further explorations below will also have a big impact in neutralizing background light.  However, for the current version it is recommended using the BLT in a room with a slightly lower level of ambient light.
+7. **Different Ambient Lighting Conditions**: Lighting has the single largest effect on the the ability to detect the broadcast message (as expected).  The BLT blinks LEDs that reflect off of the presenters face while presenting.  It follows that high levels of white light also reflecting off of the presenter, or directly shining into the webcam will reduce the detectable blinks.  In stable lighting conditions we found that the BLT could be positioned in such a way that the message can be detected in most scenarios, but in changing lighting conditions (such as outdoors) it was much more difficult.  Similarly different skin reflectivity[^4] effects blink detection.  The reflectance of skin varies based on factors like melanin content, blood flow, and hydration levels.  For fun we also tested the BLT in a dark room - the results were a perfect similarity score.  Conclusion: Future enhancements are expected to greatly improve the range of conditions in which the BLT can operate effectively - different configurations discussed in the further explorations below will also have a big impact in neutralizing background light.  However, for the current version it is recommended using the BLT in a room with a slightly lower level of ambient light.
 
 | Configuration           | Blink Rate | Chunk Size | Sample Rate | Average Similarity Score | Message Detection Rate |
 | ----------------------- | ---------- | ---------- | ----------- | ------------------------ | ---------------------- |
@@ -253,7 +260,7 @@ Below is a summary of our observations when testing various configurations:
 
 ## 8. Some Things That Didn't Work...
 
-In the design of the BLT we tried several different configurations.  We share them here so that others might avoid them or perhaps see the error in our approach and help correct them.
+In the design of the BLT, we tried several different configurations.  We share them here so that others might avoid them or perhaps see the error in our approach and help correct them.
 
 1. Using an infrared LED as the message color.  The intention here was to use an LED color that outside of the visible light spectrum so that the blinking message would be less distracting.  However, this approach violated our principal of not requiring customized hardware to record the video.  Most webcams have an IR filter built in, and in order for this to work well we needed to remove that filter.  While it is true that some IR is detected - we found that it needed to be directly pointed at the webcam and was not sufficient to reflect off of the presenters face.  Further we found that the small amount of IR that was detected is rendered as red in the video which is difficult to detect.
 2. Using ultra-violet LEDs as the message color.  Along a similar line as the infrared LED, we experienced greater success using the UV LEDs.  But to do so we needed to increase the intensity and this was very visible to both the presenter and the audience.  We also found that that the video renders the UV light as bluish which in effect increases the blue pixel count in our detection module.  After testing different configurations we determined that using a simple blue LED was more effective, and it reduces the risk of the presenter getting sunburn.
@@ -289,7 +296,7 @@ Below is a process flow for using the BLT.
 
 ## Conclusion
 
-The Blinky Light Thing presents a novel approach to addressing the growing challenge of live-streaming video authentication in the age of deep fakes. By embedding cryptographic messages directly into the physical environment of a video stream, BLT provides a robust method for verifying both the identity of presenters and the real-time nature of content. This approach is unique in that it does not require custom hardware such as attested sensors or specialized cameras (the actual BLT device is simple by comparison). The major drawback to the BLT is that it is distracting to presenters and potentially to audiences.  To some this may be viewed a s symbol of authenticity, but to most it is just annoying. To a few exposure to rapidly blinking lights is dangerous, and we would exercise caution in it's use.  We believe that with some modifications the BLT approach can become less obtrusive and more ubiquitous to streaming communications.  As deep fake technology continues to advance, systems like BLT will play a crucial role in maintaining trust in digital communications.
+The Blinky Light Thing presents a novel approach to addressing the growing challenge of live-streaming video authentication in the age of deep fakes. By embedding cryptographic messages directly into the physical environment of a video stream, BLT provides a robust method for verifying both the identity of presenters and the real-time nature of content. This approach is unique in that it does not require custom hardware such as attested sensors or specialized cameras (the actual BLT device is simple by comparison). The major drawback to the BLT is that it is distracting to presenters and potentially to audiences.  To some, this may be viewed as a symbol of authenticity, but to most, it is just annoying. To a few, exposure to rapidly blinking lights is dangerous, and we would exercise caution in its use.  We believe that with some modifications, the BLT approach can become less obtrusive and more ubiquitous to streaming communications.  As deep fake technology continues to advance, systems like BLT will play a crucial role in maintaining trust in digital communications.
 
 ## References
 
