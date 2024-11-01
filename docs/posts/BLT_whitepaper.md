@@ -14,7 +14,7 @@ tags:
 comments: true
 ---
 
-# Blinky Light Thingy: An Approach for Verifiable Real-Time Video
+# Blinky Light Thing: An Approach for Verifiable Real-Time Video
 
 Zeroth Technology, Inc
 
