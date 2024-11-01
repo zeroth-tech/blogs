@@ -12,7 +12,7 @@ tags:
 comments: true
 ---
 
-# data asset token vs. product token
+# Data Asset Token vs. Product Token
 
 I’ve recently been thinking a bit about data as an asset and the concept of data asset tokens.  Much of my thinking was influenced by [Michael Clark](https://www.linkedin.com/in/futureofmichael/) whom I had the pleasure of meeting at the recent Filecoin Uncharted event (thanks [Porter](https://www.linkedin.com/in/porterstowell/)).  This post is probably more about vocabulary than content, but vocabulary is important (at least that's what I tell my kids).
 
