@@ -13,7 +13,7 @@ tags:
   - enterprise AI agents
 comments: true
 ---
-# Aren't Enterprise AI Agents the same as RPA?
+# Are Enterprise AI Agents just RPA rebranded?
 
 There’s nothing new under the sun… If 20 years of technology consulting has taught me anything, it’s that a good story can be retold forever.  Sometimes we just need to update it with the current buzz words or fit it to current the narrative for it to seem relevant.  Today’s narrative of choice, of course, is AI.  We hear a lot about how enterprise AI agents are going to revolutionize corporate organizations, but when I ask people how, it sounds a lot like the same old story.  
 
@@ -89,7 +89,7 @@ For starters all of the complexity we've created to optimize the UX or the busin
 Blockchains are good for this (come on you knew I would go there...).  We need networks that can enforce rules which are very hard to break in order to settle the state of our data.  It doesn't matter if that data is representing an asset in the real world (like nearly every other post I written here) or if it is a photograph of your dog.  Who's data it is and what can be done with it needs to be clearly defined and controlled.  We don't have this level of control often today because it's very hard, but either our PAIAs or our EAIAs will abstract the complexity and inefficiencies away from of our control systems to make this level of granular data contol common practice.  Our systems will devolve into rulesets that the AIs are asked to adhere to while trying to achieve their objectives which (hopefully) are aligned with our intent.  The AIs will take care of connecting all the dots and the humans will provide the "bounded rationality" and the "lil-bit-o-randomenss" needed to make the digital world evolve.
 
 ## thanks for reading, I'll shut up now
-Ok, that was a bit heavy and a tad dystopian, but I don't think it's a far stretch.  And at the rate we are advancing technology this could be here before we know it.  To bring this post to a conclusion and answer the question we set out to discuss.  Aren't Enterprise AI Agents (EAIAs) the same as Robotic Process Automation (RPA)?  Sure - they could be, and in many cases probably will, but not necessarily. At least I gave you a few new acronyms to include in your deck...
+Ok, that was a bit heavy and a tad dystopian, but I don't think it's a far stretch.  And at the rate we are advancing technology this could be here before we know it.  To bring this post to a conclusion and answer the question we set out to discuss.  Are Enterprise AI Agents (EAIAs) just Robotic Process Automation (RPA) rebranded?  Sure - they could be, and in many cases probably will, but not necessarily. At least I gave you a few new acronyms to include in your deck...
 
 If you were wondering what Zeroth Technology is doing about all this, we're working on it.  We see this push as the convergence of our three pillars - Zeroth Agents, Zeroth Attest, and Zeroth Settlement Solutions.  With Zeroth Agents we are helping enterprise prepare their internal rule sets (typically buried in procedual documentation) to help interact with both EAIAs and their customers PAIAs.  Zeroth Attest is launching the Vero device to help distinguish between a real human and an imposter.  And Zeroth Settlement Solutions is working to use blockchains to settle object state in a way that is both trusted and confidential.
 
