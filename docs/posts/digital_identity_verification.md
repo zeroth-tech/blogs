@@ -56,7 +56,7 @@ Relationships between one, or many, individuals are formed at different levels. 
 
 There are four basic modes in which relationships between individuals can be described which reveal the symmetry or asymmetry in knowledge.  Each of these modes has different trust considerations:
 
-| No-Prior Mutual Knowledge:  Neither party has prior knowledge of the other. ![](./digital_identity_verification/no-knowledge.svg)| Mutual Knowledge:  Both parties are familiar with each other. ![](./digital_identity_verification/mutual-knowledge.svg)|
+| **No-Prior Mutual Knowledge:**  Neither party has prior knowledge of the other. ![](./digital_identity_verification/no-knowledge.svg)| **Mutual Knowledge:**  Both parties are familiar with each other. ![](./digital_identity_verification/mutual-knowledge.svg)|
 | :---- | :---- |
 | **Asymmetrical Knowledge:**  One party is known to the other, but not vice versa.  ![](./digital_identity_verification/asymetric-knowledge.svg) | **Inherited Relationships:**  Trust is established through a mutual third party. ![](./digital_identity_verification/inherited-relationships.svg) |
 
