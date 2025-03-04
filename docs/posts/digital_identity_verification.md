@@ -38,11 +38,11 @@ The convenience of digital communication also introduces sophisticated threats, 
 * **Trust:** Confidence in the authenticity and authority of an individual or entity.  
 * **Credential:** Evidence of identity and authority.  
 * **Presenter:** An individual asserting their identity or authority.  
-   * Honest Presenter: A legitimate individual seeking to prove that they are in fact themselves  
-   * Dishonest Presenter: A fraudster seeking to pass themselves off as someone else  
+>  * Honest Presenter: A legitimate individual seeking to prove that they are in fact themselves  
+>  * Dishonest Presenter: A fraudster seeking to pass themselves off as someone else  
 * **Verifier:** An individual or group seeking to confirm the presenter's identity or authority.  
-   * Honest Verifier: An individual who when presented evidence will accept that the presenter is honest  
-   * Dishonest Verifier: An adversary that will attempt to sew distrust by pretending an honest presenter is fraudulent.  
+>  * Honest Verifier: An individual who when presented evidence will accept that the presenter is honest  
+>  * Dishonest Verifier: An adversary that will attempt to sew distrust by pretending an honest presenter is fraudulent.  
 * **Identity Fraud:** Deceptively assuming another's identity to prompt actions in individuals who trust that identity which are not generally in their interest.  
 * **Identity Theft:** Assuming another's identity to act on their behalf without consent.
 
