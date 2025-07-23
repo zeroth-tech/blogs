@@ -46,6 +46,7 @@ theme:
       bug: octicons/bug-16
       example: octicons/beaker-16
       quote: octicons/quote-16
+      pyrana: custom/pyrana
 
 extra:
   social:
@@ -128,6 +129,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -136,6 +140,7 @@ extra_javascript:
 
 extra_css:
   - stylesheets/code_wrap.css
+  - stylesheets/pyrana.css
 
 copyright: >
   Copyright &copy; 2024 Zeroth Technology, Inc. All rights reserved.

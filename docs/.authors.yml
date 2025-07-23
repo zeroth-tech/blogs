@@ -14,3 +14,13 @@ authors:
     description: Creator
     avatar: https://github.com/patmacs.png
     url: https://twitter.com/intent/follow?screen_name=patmacs
+  ericzeroth:
+    name: Eric Tarnowski
+    description: Creator
+    avatar: https://github.com/ericzeroth.png
+    url: https://twitter.com/intent/follow?screen_name=ericzeroth
+  sam-zeroth:
+    name: Sam Merkovitz
+    description: Creator
+    avatar: https://github.com/sam-zeroth.png
+    url: https://twitter.com/intent/follow?screen_name=sam-zeroth

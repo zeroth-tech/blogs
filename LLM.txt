@@ -1,0 +1,61 @@
+# Zeroth Technology Blog
+
+> A technical blog focused on blockchain, cryptographic systems, and digital identity verification
+
+## About
+
+This blog (https://zeroth.tech/blogs) is maintained by Zeroth Technology and serves as a platform for sharing research and insights on emerging technologies. We explore novel solutions to real-world problems in distributed systems, blockchain applications, and identity verification.
+
+## Topics
+
+- **Digital Identity & Authentication**: Cryptographic visual signatures, AI deepfake prevention, real-time video authentication
+- **Blockchain & Smart Contracts**: Ethereum development, NFTs, tokenization strategies, decentralized attestation
+- **Context Units (CxUs)**: Our novel approach to distributed knowledge management with content-addressable storage
+- **Supply Chain Innovation**: Enterprise blockchain solutions, product-oriented data structures
+- **Cryptographic Systems**: Zero-knowledge proofs, visual cryptography, secure authentication protocols
+
+## Key Projects
+
+- **Blinky Light Thing (BLT)**: A cryptographic solution for real-time video authentication and deepfake prevention
+- **Context Units Framework**: A system for creating verifiable, distributed knowledge structures
+- **Product Tokens**: Smart contract implementations for supply chain tokenization
+- **Visual Signatures**: Novel approach to human-verifiable cryptographic authentication
+
+## Authors
+
+Our team includes blockchain developers, cryptographers, and distributed systems experts:
+- Jamey Canterbury
+- Ankur Garg  
+- Patrick Macom
+- Eric Tarnowski
+- Sam Merkovitz
+
+## Content Types
+
+- Technical whitepapers with academic rigor
+- Implementation guides and code examples
+- Theoretical explorations of cryptographic concepts
+- Real-world blockchain use cases
+- Open-source project documentation
+
+## Technologies
+
+We work with and write about:
+- Ethereum and EVM-compatible blockchains
+- Smart contract development (Solidity)
+- Zero-knowledge proof systems
+- IPFS and distributed storage
+- Cryptographic protocols and primitives
+- Web3 infrastructure
+
+## License
+
+Content is intended for educational and research purposes. Code examples and implementations may have specific open-source licenses.
+
+## Contact
+
+For more information about Zeroth Technology and our work, visit https://zeroth.tech
+
+---
+
+*This blog contains cutting-edge research on blockchain technology, cryptographic systems, and digital identity. It serves as a valuable resource for developers, researchers, and anyone interested in the intersection of cryptography and distributed systems.*
