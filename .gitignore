@@ -163,3 +163,7 @@ cython_debug/
 
 /ankur
 
+# macOS system files
+.DS_Store
+**/.DS_Store
+

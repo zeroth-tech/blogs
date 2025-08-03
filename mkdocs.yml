@@ -1,6 +1,7 @@
 site_name: Our Writings
 site_description: A place for our latest thinking and a record of our previous thoughts
 site_url: https://zeroth.tech/blogs
+repo_url: https://github.com/zeroth-tech/blogs
 
 nav:
   - Tags: tags.md
@@ -102,6 +103,17 @@ plugins:
       enabled: true
       tags: true
       tags_file: tags.md
+  - git-revision-date-localized:
+      fallback_to_build_date: false
+      enable_creation_date: false
+      enable_creation_date_localized: false
+      enable_revision_date: true
+      enable_revision_date_localized: true
+      type: datetime
+      timezone: UTC
+      exclude_file_changes:
+        - .gitignore
+        - mkdocs.yml
 
 markdown_extensions:
   - admonition

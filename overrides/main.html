@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+<!-- Make the built-in Material theme revision date clickable -->
+{% block content %}
+  {{ super() }}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Looking for revision date element...');
+      
+      // Try multiple selectors to find the revision date
+      const selectors = [
+        '.md-source-file__fact time[datetime]',
+        'time[datetime]',
+        '.md-post__meta time',
+        '[data-md-component="source-file"] time',
+        '.md-source-file__fact',
+        '.md-post__meta .md-meta__data'
+      ];
+      
+      let revisionElement = null;
+      let factElement = null;
+      
+      for (const selector of selectors) {
+        revisionElement = document.querySelector(selector);
+        if (revisionElement) {
+          console.log('Found element with selector:', selector);
+          console.log('Element:', revisionElement);
+          
+          // Find the parent container
+          factElement = revisionElement.closest('.md-source-file__fact') || 
+                       revisionElement.closest('.md-post__meta') ||
+                       revisionElement.parentElement;
+          break;
+        }
+      }
+      
+      if (revisionElement && factElement) {
+        console.log('Making revision date clickable...');
+        const filePath = '{{ page.file.src_path }}';
+        const repoUrl = '{{ config.repo_url }}';
+        
+        // Wrap the existing content in a clickable link
+        const link = document.createElement('a');
+        link.href = repoUrl + '/commits/main/' + filePath;
+        link.target = '_blank';
+        link.title = 'View git history for this file';
+        link.style.color = 'inherit';
+        link.style.textDecoration = 'none';
+        link.style.cursor = 'pointer';
+        
+        // Move all children of factElement to the link
+        while (factElement.firstChild) {
+          link.appendChild(factElement.firstChild);
+        }
+        
+        // Add the link back to factElement
+        factElement.appendChild(link);
+        
+        // Add hover effect
+        link.addEventListener('mouseenter', function() {
+          this.style.color = 'var(--md-accent-fg-color)';
+          this.style.textDecoration = 'underline';
+        });
+        
+        link.addEventListener('mouseleave', function() {
+          this.style.color = 'inherit';
+          this.style.textDecoration = 'none';
+        });
+        
+        console.log('Revision date is now clickable!');
+      } else {
+        console.log('Could not find revision date element');
+        console.log('Available elements with time tags:', document.querySelectorAll('time'));
+        console.log('Available elements with datetime:', document.querySelectorAll('[datetime]'));
+      }
+    });
+  </script>
+{% endblock %}
