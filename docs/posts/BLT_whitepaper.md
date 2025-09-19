@@ -8,7 +8,7 @@ date:
   updated: 2024-09-24
 draft: false
 categories:
-  - Attestation
+  - Identity & Authenticity
 tags:
   - live streaming
 comments: true

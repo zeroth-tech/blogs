@@ -5,7 +5,7 @@ date:
   created: 2025-09-18
 draft: false
 categories:
-  - Identity
+  - Identity & Authenticity
 tags:
   - digital-identity
   - trust

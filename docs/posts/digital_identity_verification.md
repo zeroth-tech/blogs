@@ -5,8 +5,7 @@ date:
   created: 2025-03-03
 draft: false
 categories:
-  - Identity
-  - Attestation
+  - Identity & Authenticity
 tags:
   - identity fraud
   - live streaming

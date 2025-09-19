@@ -6,9 +6,10 @@ date:
   updated: 2023-11-29
 draft: false
 categories:
-  - Attestation
+  - Identity & Authenticity
 tags:
   - attested sensors
+  - hardware
 comments: true
 ---
 # Attested Sensors & Source Data Synthesis Under Zero Knowledge

@@ -5,7 +5,7 @@ date:
   created: 2025-07-22
 draft: false
 categories:
-  - Fundamentals
+  - Agentic AI Research
 tags:
   - cxu
   - specification

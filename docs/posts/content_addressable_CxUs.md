@@ -4,7 +4,7 @@ authors:
 date:
   created: 2025-06-18
 categories:
-  - Fundamentals
+  - Agentic AI Research
 tags:
   - content-addressable
   - context-units

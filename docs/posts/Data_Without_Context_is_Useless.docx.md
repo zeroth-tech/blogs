@@ -5,7 +5,7 @@ date:
   created: 2025-07-10
 draft: false
 categories:
-  - Data Strategy
+  - Agentic AI Research
 tags:
   - data
   - context

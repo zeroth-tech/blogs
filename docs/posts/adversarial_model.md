@@ -6,10 +6,11 @@ date:
   created: 2024-07-22
 draft: true
 categories:
-  - Attestation
+  - Identity & Authenticity
 tags:
   - live streaming
   - adversarial
+  - deep-fake
 comments: true
 ---
 
@@ -20,6 +21,8 @@ comments: true
 We're at a pivotal moment in human history, and most people don't even realize it. The ability to manipulate reality through digital means isn't just some sci-fi concept anymore - it's here, and it's evolving faster than our archaic institutions can handle.
 
 Historically, impersonation and fraud have primarily occurred through voice channels, such as phone calls. However, the landscape is rapidly changing.
+
+<!-- more -->
 
 ## The Adversarial Model
 

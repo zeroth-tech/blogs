@@ -5,8 +5,7 @@ date:
   created: 2025-08-01
 draft: false
 categories:
-  - AI Research
-  - Context Engineering
+  - Agentic AI Research
 tags:
   - ai research
   - context engineering

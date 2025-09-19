@@ -7,7 +7,7 @@ date:
   created: 2024-07-04
 draft: true
 categories:
-  - Attestation
+  - Identity & Authenticity
 tags:
   - live streaming
 comments: true
@@ -15,6 +15,8 @@ comments: true
 # The Blinky Light Thing
 
 The objective of the Blinky Light Thing *(that's the technical term)* is to embed proof that audio and video content is both authentic and contemporaneous with the time at which it is being recorded by introducing elements into the physical environment that are very difficult replicate and are captured by the original recording devices (i.e., camera + microphone).  The intention of BLT is to supply a low-tech solution that is not dependent on specific hardware/software and is easily (and freely) verifiable.
+
+<!-- more -->
 
 ## What's the problem with live-streaming video?
 

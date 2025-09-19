@@ -6,7 +6,7 @@ date:
   updated: 2024-05-20
 draft: false
 categories:
-  - Fundamentals
+  - Supply Chain
 tags:
   - autonomous worlds
   - supply chain

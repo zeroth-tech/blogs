@@ -5,7 +5,7 @@ date:
   created: 2024-09-21
 draft: false
 categories:
-  - Fundamentals
+  - Identity & Authenticity
 tags:
   - digital truth
 comments: true

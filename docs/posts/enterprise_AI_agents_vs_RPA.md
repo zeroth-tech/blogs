@@ -5,7 +5,7 @@ date:
   created: 2024-12-12
 draft: false
 categories:
-  - AI Agents
+  - Agentic AI Research
 tags:
   - process modeling
   - robotic process automation
