@@ -59,9 +59,9 @@ But then again ZKPs are cool.
     </summary>
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-06-15</p>
-      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2024-06-15</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 2</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">39b21233f4a5a635...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-19</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 4</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">66207b0fb54b7fae...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
@@ -75,21 +75,26 @@ But then again ZKPs are cool.
           </thead>
           <tbody>
             <tr>
-              <td style="padding: 0.25rem;">2024-06-15</td>
+              <td style="padding: 0.25rem;">2025-09-19</td>
               <td style="padding: 0.25rem;">James Canterbury</td>
-              <td style="padding: 0.25rem;">fixed tags</td>
+              <td style="padding: 0.25rem;">Enhanced landing page - added consistent catego...</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2025-09-19</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Added the github "Content Provenance" onto each...</td>
             </tr>
             <tr>
               <td style="padding: 0.25rem;">2024-06-15</td>
               <td style="padding: 0.25rem;">James Canterbury</td>
-              <td style="padding: 0.25rem;">added a bunch of old blogs...</td>
+              <td style="padding: 0.25rem;">fixed tags</td>
             </tr>
           </tbody>
         </table>
       </div>
       
       <p style="margin-top: 1rem; margin-bottom: 0;">
-        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/attested_sensors.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/d8b1cb6671276034987e8ed4c379922236f926e8/docs/posts/attested_sensors.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
           View Full History on GitHub →
         </a>
       </p>

@@ -6,7 +6,7 @@ This feature adds content provenance information to blog posts, providing reader
 
 Each blog post now includes an expandable section at the bottom (just before the comments area) that displays:
 - Creation date (from first Git commit)
-- Last modified date
+- Last modified date (excludes frontmatter-only changes by default)
 - Total number of revisions
 - SHA-256 hash of the file content
 - Recent commit history (last 3 changes)
@@ -48,6 +48,7 @@ python3 mkdocs_blog_git_plugin.py --file docs/posts/your_post.md
 - `--verbose` or `-v`: Enable detailed logging
 - `--docs-dir`: Specify documentation directory (default: docs)
 - `--repo-path`: Specify Git repository path (default: current directory)
+- `--include-frontmatter`: Include frontmatter-only changes in last modified date (default: exclude them)
 
 ## User Experience
 
@@ -77,6 +78,23 @@ Recommended workflow:
 
 The metadata will automatically reflect the Git history, ensuring accuracy and preventing manual date manipulation.
 
+## Frontmatter vs Content Changes
+
+The system distinguishes between two types of changes:
+
+1. **Content Changes**: Modifications to the actual article text, which are meaningful to readers
+2. **Frontmatter Changes**: Modifications to metadata like tags, categories, or other YAML header fields
+
+By default, the "Last Modified" date excludes frontmatter-only changes, focusing on when the substantive content was last updated. This provides a more accurate representation of when the article's core information changed.
+
+### Examples:
+- ✅ **Content change**: Adding a new paragraph → Updates "Last Modified" date
+- ✅ **Content change**: Fixing a typo → Updates "Last Modified" date  
+- ❌ **Frontmatter-only**: Adding a tag → Does NOT update "Last Modified" date
+- ❌ **Frontmatter-only**: Changing categories → Does NOT update "Last Modified" date
+
+All changes (including frontmatter) are still visible in the "Recent Changes" table and commit history.
+
 ## Technical Notes
 
 - Uses SHA-256 for file hashing (more secure than SHA-1)
@@ -84,3 +102,4 @@ The metadata will automatically reflect the Git history, ensuring accuracy and p
 - Handles edge cases (no Git history, new files)
 - Works with MkDocs Material theme
 - Compatible with existing git-revision-date-localized plugin
+- Intelligently detects frontmatter-only changes using diff analysis

@@ -50,9 +50,9 @@ An alternative to this is to simply register a schema via EAS and reference that
     </summary>
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-06-15</p>
-      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2024-06-15</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 2</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">835232ad0f685d5c...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-19</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 3</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">793d321b72d7b6de...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
@@ -65,6 +65,11 @@ An alternative to this is to simply register a schema via EAS and reference that
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td style="padding: 0.25rem;">2025-09-19</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Added the github "Content Provenance" onto each...</td>
+            </tr>
             <tr>
               <td style="padding: 0.25rem;">2024-06-15</td>
               <td style="padding: 0.25rem;">James Canterbury</td>
@@ -80,7 +85,7 @@ An alternative to this is to simply register a schema via EAS and reference that
       </div>
       
       <p style="margin-top: 1rem; margin-bottom: 0;">
-        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/product_token_metadata_profiling.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/d8b1cb6671276034987e8ed4c379922236f926e8/docs/posts/product_token_metadata_profiling.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
           View Full History on GitHub →
         </a>
       </p>

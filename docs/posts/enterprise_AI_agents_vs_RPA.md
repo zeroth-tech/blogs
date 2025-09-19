@@ -106,9 +106,9 @@ If you were wondering what Zeroth Technology is doing about all this, we're work
     </summary>
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-12-12</p>
-      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2024-12-13</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 2</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">d1d5d803092a6b3d...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-19</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 4</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">4529d47a89f97364...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
@@ -122,21 +122,26 @@ If you were wondering what Zeroth Technology is doing about all this, we're work
           </thead>
           <tbody>
             <tr>
+              <td style="padding: 0.25rem;">2025-09-19</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Enhanced landing page - added consistent catego...</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2025-09-19</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Added the github "Content Provenance" onto each...</td>
+            </tr>
+            <tr>
               <td style="padding: 0.25rem;">2024-12-13</td>
               <td style="padding: 0.25rem;">James Canterbury</td>
               <td style="padding: 0.25rem;">title change</td>
-            </tr>
-            <tr>
-              <td style="padding: 0.25rem;">2024-12-12</td>
-              <td style="padding: 0.25rem;">James Canterbury</td>
-              <td style="padding: 0.25rem;">added enterprise AI vs. RPA</td>
             </tr>
           </tbody>
         </table>
       </div>
       
       <p style="margin-top: 1rem; margin-bottom: 0;">
-        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/enterprise_AI_agents_vs_RPA.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/d8b1cb6671276034987e8ed4c379922236f926e8/docs/posts/enterprise_AI_agents_vs_RPA.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
           View Full History on GitHub →
         </a>
       </p>

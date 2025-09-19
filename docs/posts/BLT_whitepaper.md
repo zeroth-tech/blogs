@@ -319,9 +319,9 @@ The Blinky Light Thing presents a novel approach to addressing the growing chall
     </summary>
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-09-24</p>
-      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2024-11-01</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 3</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">d73b85998c70c9d2...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-19</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 5</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">e2e036fffcaf62c7...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
@@ -335,26 +335,26 @@ The Blinky Light Thing presents a novel approach to addressing the growing chall
           </thead>
           <tbody>
             <tr>
+              <td style="padding: 0.25rem;">2025-09-19</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Enhanced landing page - added consistent catego...</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2025-09-19</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Added the github "Content Provenance" onto each...</td>
+            </tr>
+            <tr>
               <td style="padding: 0.25rem;">2024-11-01</td>
               <td style="padding: 0.25rem;">James Canterbury</td>
               <td style="padding: 0.25rem;">posting data asset tokens blog and updates to BLT</td>
-            </tr>
-            <tr>
-              <td style="padding: 0.25rem;">2024-10-08</td>
-              <td style="padding: 0.25rem;">James Canterbury</td>
-              <td style="padding: 0.25rem;">updates to BLT white paper and publish</td>
-            </tr>
-            <tr>
-              <td style="padding: 0.25rem;">2024-09-24</td>
-              <td style="padding: 0.25rem;">James Canterbury</td>
-              <td style="padding: 0.25rem;">upload blt white paper</td>
             </tr>
           </tbody>
         </table>
       </div>
       
       <p style="margin-top: 1rem; margin-bottom: 0;">
-        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/BLT_whitepaper.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/d8b1cb6671276034987e8ed4c379922236f926e8/docs/posts/BLT_whitepaper.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
           View Full History on GitHub →
         </a>
       </p>

@@ -84,9 +84,9 @@ The tools exist. The principles are proven. The question now is whether we'll us
     </summary>
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2025-06-18</p>
-      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-06-18</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 1</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">ce08ab0d6074808d...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-19</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 3</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">ec3f7c351a91a464...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
@@ -100,6 +100,16 @@ The tools exist. The principles are proven. The question now is whether we'll us
           </thead>
           <tbody>
             <tr>
+              <td style="padding: 0.25rem;">2025-09-19</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Enhanced landing page - added consistent catego...</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2025-09-19</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Added the github "Content Provenance" onto each...</td>
+            </tr>
+            <tr>
               <td style="padding: 0.25rem;">2025-06-18</td>
               <td style="padding: 0.25rem;">James Canterbury</td>
               <td style="padding: 0.25rem;">added CA-CxU</td>
@@ -109,7 +119,7 @@ The tools exist. The principles are proven. The question now is whether we'll us
       </div>
       
       <p style="margin-top: 1rem; margin-bottom: 0;">
-        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/content_addressable_CxUs.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/d8b1cb6671276034987e8ed4c379922236f926e8/docs/posts/content_addressable_CxUs.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
           View Full History on GitHub →
         </a>
       </p>

@@ -141,28 +141,136 @@ def get_file_creation_date(file_path: Path, repo_path: Path = Path(".")) -> Opti
     return None
 
 
-def get_file_last_modified(file_path: Path, repo_path: Path = Path(".")) -> Optional[str]:
+def is_frontmatter_only_change(commit_hash: str, file_path: Path, repo_path: Path = Path(".")) -> bool:
+    """
+    Check if a commit only changed the frontmatter (YAML header) of a file.
+    
+    Args:
+        commit_hash: Git commit hash
+        file_path: Path to the file
+        repo_path: Path to git repository root
+        
+    Returns:
+        True if only frontmatter was changed, False otherwise
+    """
+    relative_path = file_path.relative_to(repo_path)
+    
+    # Get the diff for this specific file in this commit
+    output = run_git_command([
+        "show", commit_hash,
+        "--", str(relative_path)
+    ], repo_path)
+    
+    if not output:
+        return False
+    
+    lines = output.split('\n')
+    in_diff = False
+    
+    # We need to track the line numbers to understand where we are in the file
+    # Frontmatter is typically at the beginning of markdown files between --- markers
+    
+    for line in lines:
+        # Look for the diff section with line numbers
+        if line.startswith('@@'):
+            in_diff = True
+            continue
+            
+        if not in_diff:
+            continue
+            
+        # Skip context lines (no + or - prefix)
+        if not line.startswith(('+', '-')):
+            continue
+            
+        # Skip the +++ and --- lines
+        if line.startswith('+++') or line.startswith('---'):
+            continue
+            
+        # Get the content without +/- prefix
+        content = line[1:]
+        
+        # If there's any non-whitespace content and we can tell it's not in frontmatter,
+        # then it's not frontmatter-only
+        if content.strip():
+            # Simple heuristic: if the line contains markdown content indicators
+            # or is clearly not YAML frontmatter syntax, it's content
+            stripped = content.strip()
+            
+            # Skip YAML frontmatter delimiters
+            if stripped == '---':
+                continue
+                
+            # Check if this looks like YAML frontmatter (key: value pairs, lists, etc.)
+            # or markdown content
+            if (
+                # Markdown headers
+                stripped.startswith('#') or
+                # Markdown paragraphs (not indented YAML)
+                (not stripped.startswith((' ', '-', 'categories:', 'tags:', 'date:', 'draft:', 'authors:', 'comments:')) and 
+                 ':' not in stripped and
+                 len(stripped) > 20)  # Likely prose, not YAML
+            ):
+                return False
+    
+    return True
+
+
+def get_file_last_modified(file_path: Path, repo_path: Path = Path("."), exclude_frontmatter_only: bool = False) -> Optional[str]:
     """
     Get the last modified date of a file from Git history.
     
     Args:
         file_path: Path to the file
         repo_path: Path to git repository root
+        exclude_frontmatter_only: If True, skip commits that only changed frontmatter
         
     Returns:
         ISO date string or None if not found
     """
     relative_path = file_path.relative_to(repo_path)
     
-    # Get the most recent commit for this file
+    if not exclude_frontmatter_only:
+        # Original behavior - get the most recent commit
+        output = run_git_command([
+            "log", "-1",
+            "--pretty=format:%aI",
+            "--", str(relative_path)
+        ], repo_path)
+        
+        if output:
+            return output.strip()
+        return None
+    
+    # Enhanced behavior - skip frontmatter-only changes
+    # Get all commits for this file
     output = run_git_command([
-        "log", "-1",
-        "--pretty=format:%aI",
+        "log",
+        "--pretty=format:%H|%aI",
         "--", str(relative_path)
     ], repo_path)
     
-    if output:
-        return output.strip()
+    if not output:
+        return None
+    
+    for line in output.strip().split('\n'):
+        if not line:
+            continue
+            
+        parts = line.split('|', 1)
+        if len(parts) != 2:
+            continue
+            
+        commit_hash, date = parts
+        
+        # Check if this commit only changed frontmatter
+        if not is_frontmatter_only_change(commit_hash, file_path, repo_path):
+            return date
+    
+    # If all commits were frontmatter-only, return the first (creation) date
+    first_line = output.strip().split('\n')[-1]
+    if '|' in first_line:
+        return first_line.split('|', 1)[1]
     
     return None
 
@@ -231,13 +339,14 @@ def get_commit_count(file_path: Path, repo_path: Path = Path(".")) -> int:
     return 0
 
 
-def get_file_git_metadata(file_path: Path, repo_path: Path = Path(".")) -> Dict[str, Any]:
+def get_file_git_metadata(file_path: Path, repo_path: Path = Path("."), exclude_frontmatter_only: bool = False) -> Dict[str, Any]:
     """
     Get comprehensive Git metadata for a file.
     
     Args:
         file_path: Path to the file
         repo_path: Path to git repository root
+        exclude_frontmatter_only: If True, exclude frontmatter-only changes from last modified date
         
     Returns:
         Dictionary containing all Git metadata
@@ -246,7 +355,7 @@ def get_file_git_metadata(file_path: Path, repo_path: Path = Path(".")) -> Dict[
         'file_hash': compute_file_hash(file_path),
         'github_url': get_github_url(file_path, repo_path),
         'created_date': get_file_creation_date(file_path, repo_path),
-        'modified_date': get_file_last_modified(file_path, repo_path),
+        'modified_date': get_file_last_modified(file_path, repo_path, exclude_frontmatter_only),
         'recent_commits': get_recent_commits(file_path, repo_path, limit=3),
         'total_commits': get_commit_count(file_path, repo_path),
         'file_path': str(file_path.relative_to(repo_path))

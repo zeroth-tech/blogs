@@ -20,16 +20,18 @@ logger = logging.getLogger(__name__)
 
 
 class BlogGitInjector:
-    def __init__(self, docs_dir: str = "docs", repo_path: str = "."):
+    def __init__(self, docs_dir: str = "docs", repo_path: str = ".", exclude_frontmatter_only: bool = True):
         """
         Initialize the blog git metadata injector.
         
         Args:
             docs_dir: Documentation directory path
             repo_path: Git repository root path
+            exclude_frontmatter_only: If True, exclude frontmatter-only changes from last modified date
         """
         self.docs_dir = Path(docs_dir)
         self.repo_path = Path(repo_path)
+        self.exclude_frontmatter_only = exclude_frontmatter_only
         self.metadata_start = "<!-- BLOG_GIT_METADATA START -->"
         self.metadata_end = "<!-- BLOG_GIT_METADATA END -->"
         
@@ -137,7 +139,7 @@ class BlogGitInjector:
             has_markers = self.metadata_start in content and self.metadata_end in content
             
             # Get file metadata
-            metadata = get_file_git_metadata(file_path, self.repo_path)
+            metadata = get_file_git_metadata(file_path, self.repo_path, self.exclude_frontmatter_only)
             
             # Format metadata
             metadata_html = self.format_metadata_html(metadata)
@@ -260,6 +262,11 @@ def main():
         action='store_true',
         help='Remove metadata sections instead of adding them'
     )
+    parser.add_argument(
+        '--include-frontmatter',
+        action='store_true',
+        help='Include frontmatter-only changes in last modified date (default: exclude them)'
+    )
     
     args = parser.parse_args()
     
@@ -269,7 +276,8 @@ def main():
     # Create injector
     injector = BlogGitInjector(
         docs_dir=args.docs_dir,
-        repo_path=args.repo_path
+        repo_path=args.repo_path,
+        exclude_frontmatter_only=not args.include_frontmatter
     )
     
     # Process files
