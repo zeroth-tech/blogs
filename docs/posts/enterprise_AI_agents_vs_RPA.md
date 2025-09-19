@@ -97,5 +97,62 @@ If you were wondering what Zeroth Technology is doing about all this, we're work
 
 [1] Farmer, J. D. (2023). Making Sense of Chaos: The Modeling Revolution in Economics. Little, Brown Spark.
 
+<!-- BLOG_GIT_METADATA START -->
+
+<div class="blog-git-metadata" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest);">
+  <details style="background: var(--md-code-bg-color); padding: 0.5rem 1rem; border-radius: 0.2rem;">
+    <summary style="cursor: pointer; font-weight: 500; color: var(--md-default-fg-color--light);">
+      📝 Content Provenance
+    </summary>
+    <div style="margin-top: 1rem; font-size: 0.9em;">
+      <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-12-12</p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2024-12-13</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 2</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">d1d5d803092a6b3d...</code></p>
+      
+      <div style="margin-top: 1rem;">
+        <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
+        <table style="width: 100%; font-size: 0.85em; margin-top: 0.5rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--md-default-fg-color--lightest);">
+              <th style="text-align: left; padding: 0.25rem;">Date</th>
+              <th style="text-align: left; padding: 0.25rem;">Author</th>
+              <th style="text-align: left; padding: 0.25rem;">Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 0.25rem;">2024-12-13</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">title change</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2024-12-12</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">added enterprise AI vs. RPA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p style="margin-top: 1rem; margin-bottom: 0;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/enterprise_AI_agents_vs_RPA.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+          View Full History on GitHub →
+        </a>
+      </p>
+    </div>
+  </details>
+  
+  <div style="margin-top: 0.5rem; font-size: 0.8em; color: var(--md-default-fg-color--lighter);">
+    <p style="margin: 0;">
+      <em>This metadata provides cryptographic proof of this document's creation and modification history. 
+      The SHA-256 hash can be used to verify the document's integrity, while the Git history shows its evolution over time.</em>
+    </p>
+  </div>
+</div>
+
+<!-- BLOG_GIT_METADATA END -->
+
+
 
 

@@ -50,21 +50,21 @@ So when people say Vero introduces friction to the authentication process, I agr
 
 ## Behavioral Change and Selective Friction
 
-We also hear: “Vero requires a behavioral shift, and changing behavior is impossible.” I agree — to a point. If you expect people to change just because it’s better for the system, good luck. If the change doesn’t have an immediate, meaningful payoff for the individual, it won’t happen either.
+We also hear: “Vero requires a behavioral shift, and changing behavior is impossible.” I agree — to an extent. If you expect people to change just because it’s better for the system, good luck. If the change doesn’t have an immediate, meaningful payoff for the individual, it won’t happen either.
 
 But when people understand that trust requires doing something extra — and that the extra step only comes into play when it matters — that’s a manageable level of friction. Better yet, if that extra step is tangible and immediately recognized by others as a signal of trust, adoption becomes easier.
 
 As scams grow more common and the fear of being defrauded rises, resistance to that friction will fall; and so people need the tools to be available.
 
-That’s why Vero is designed to be optional. You can be in the middle of a conference call, notice something feels off, and request verification. Or you can use it before sharing sensitive information. Much like selective disclosure, Vero works best when users choose it — when it becomes their tool to show their intent.
+That’s why Vero is designed to be optional. You can be in the middle of a conference call, notice something feels off, and request verification. Or you can use it before sharing sensitive information. Much like selective disclosure, Vero works best when users choose it — when it becomes their tool to show their intent.  The objective is to have the option to be available and to have users aware of its existence, which is why we are planning to build it into existing technology stacks.  Of course there would be nothing preventing users or institutions from requiring its use in certain circumstances, which supports our licensing strategy.
 
 ## Layers of Proof
 
-Another common pushback is: “If I can prove my identity via a Temporal Identity Proof, why do I need to blink a light on my face?”
+Another common push back is: “If I can prove my identity via a Temporal Identity Proof, why do I need to blink a light on my face?”
 
-Answer: you don’t. Vero is a layered cake — you can consume as much as you want. The one-time biometric (the blinking light) is the icing.  While it may be the most novel part of our design it is not something we intend people to do everytime they interact.
+Answer: you don’t. Vero is a layered cake — you can consume as much as you want. The one-time biometric (the blinking light) is the icing.  While it may be the most novel part of our design it is not something we intend people to do every time they interact.
 
-This perspective also raises the point that the Temporal Identity Proof (TIP) and it's real-time verification is valuable on its own.  To understand why you need to ground yourself in one of our first principles - *Vero does not seek to own your identity*.  We think there are some great (and many not-so-great) identity solutions out there.  We also think the identity space will continue to evolve and that decentralized technologies like DIDs and ZK Passports are the way of the future; but these are generally not in our hands right now and there is still a very long learning curve before they are mainstream.  In the meantime, TIPs let you use the credentials and reputations you already control.
+This perspective also raises the point that the Temporal Identity Proof (TIP) and its real-time verification is valuable on its own.  To understand why you need to ground yourself in one of our first principles-*Vero does not seek to own your identity*.  We think there are some great (and many not-so-great) identity solutions out there.  We also think the identity space will continue to evolve and that decentralized technologies like DIDs and ZK Passports are the way of the future; but these are generally not in our hands right now and there is still a very long learning curve before they are mainstream.  In the meantime, TIPs let you use the credentials and reputations you already control.
 
 And remember — reputation often matters more than formal identity. A driver’s license might prove I’m legally allowed to drive in New Jersey, but it doesn’t prove I’m the person writing this blog. My GitHub commit history does. Likewise, airport security doesn’t care about my GitHub handle. Different contexts demand different proofs.
 
@@ -72,7 +72,7 @@ That’s why Vero’s model is simple: bring your own identity.
 
 ## How You Bring It: Temporal Identity Proofs
 
-We explain TIPs more deeply in our lightpaper, but here's the basic flow:
+We explain TIPs more deeply in our [lightpaper](https://vero.technology/lightpaper), but here's the basic flow:
 
 1. **Identify trust anchors.** These may be reputational (GitHub, LinkedIn, X) or credential-based (Okta ID, ID.me, SpruceID, etc.). You'll need several.
    - Reputation takes time (sandcastles — use sparingly).
@@ -100,3 +100,55 @@ Where there is smoke, there is safety. And when there is no smoke — that’s w
 ---
 
 *What's your take on friction in digital identity verification? Have you found yourself trusting technology more than you probably should? I'd love to hear about your experiences with authentication systems that actually make you feel more secure. Drop me a line or share your thoughts.*
+
+<!-- BLOG_GIT_METADATA START -->
+
+<div class="blog-git-metadata" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest);">
+  <details style="background: var(--md-code-bg-color); padding: 0.5rem 1rem; border-radius: 0.2rem;">
+    <summary style="cursor: pointer; font-weight: 500; color: var(--md-default-fg-color--light);">
+      📝 Content Provenance
+    </summary>
+    <div style="margin-top: 1rem; font-size: 0.9em;">
+      <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2025-09-18</p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-18</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 1</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">65670915724e691b...</code></p>
+      
+      <div style="margin-top: 1rem;">
+        <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
+        <table style="width: 100%; font-size: 0.85em; margin-top: 0.5rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--md-default-fg-color--lightest);">
+              <th style="text-align: left; padding: 0.25rem;">Date</th>
+              <th style="text-align: left; padding: 0.25rem;">Author</th>
+              <th style="text-align: left; padding: 0.25rem;">Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 0.25rem;">2025-09-18</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Create where_theres_smoke.md</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p style="margin-top: 1rem; margin-bottom: 0;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/where_theres_smoke.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+          View Full History on GitHub →
+        </a>
+      </p>
+    </div>
+  </details>
+  
+  <div style="margin-top: 0.5rem; font-size: 0.8em; color: var(--md-default-fg-color--lighter);">
+    <p style="margin: 0;">
+      <em>This metadata provides cryptographic proof of this document's creation and modification history. 
+      The SHA-256 hash can be used to verify the document's integrity, while the Git history shows its evolution over time.</em>
+    </p>
+  </div>
+</div>
+
+<!-- BLOG_GIT_METADATA END -->
+

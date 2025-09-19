@@ -110,3 +110,55 @@ The most common example of claims are ownership and custody.  If your friend bor
 Settling an inventory transaction is in effect settling a claim - or rather creating a shared state that maps the claims to participants for a given product at a point in time.  Changes to this state over time in the form of a claim-state log become the history of who, what, and when.  If we also add in the ability for a claim holder to attest to a piece of information about a product then we can round out the where, why, and how components. Basic rules like “a claim for a given product can only be held by one participant at a time” or “you must hold a claim in order to transfer it” can enforce the settlement.  
 
 The last component that is needed is a way to traverse the claims-state log forward and backward for a given product.  This would give us the “track-and-trace” components that we have been seeking, and if we were able to limit that ability to only those participants who hold (or have held in the past) claims on that product we would preserve the confidential nature of the supply chain.  A technique like this would be a method for Confidential Transactions with Embedded Rights (CSER) and is a public good that Zeroth Technology is looking to create for the world.
+
+<!-- BLOG_GIT_METADATA START -->
+
+<div class="blog-git-metadata" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest);">
+  <details style="background: var(--md-code-bg-color); padding: 0.5rem 1rem; border-radius: 0.2rem;">
+    <summary style="cursor: pointer; font-weight: 500; color: var(--md-default-fg-color--light);">
+      📝 Content Provenance
+    </summary>
+    <div style="margin-top: 1rem; font-size: 0.9em;">
+      <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-06-15</p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2024-06-15</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 1</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">9d14e82ec3e41f13...</code></p>
+      
+      <div style="margin-top: 1rem;">
+        <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
+        <table style="width: 100%; font-size: 0.85em; margin-top: 0.5rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--md-default-fg-color--lightest);">
+              <th style="text-align: left; padding: 0.25rem;">Date</th>
+              <th style="text-align: left; padding: 0.25rem;">Author</th>
+              <th style="text-align: left; padding: 0.25rem;">Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 0.25rem;">2024-06-15</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">added a bunch of old blogs...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p style="margin-top: 1rem; margin-bottom: 0;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/why_isnt_supply_chain_fixed_yet.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+          View Full History on GitHub →
+        </a>
+      </p>
+    </div>
+  </details>
+  
+  <div style="margin-top: 0.5rem; font-size: 0.8em; color: var(--md-default-fg-color--lighter);">
+    <p style="margin: 0;">
+      <em>This metadata provides cryptographic proof of this document's creation and modification history. 
+      The SHA-256 hash can be used to verify the document's integrity, while the Git history shows its evolution over time.</em>
+    </p>
+  </div>
+</div>
+
+<!-- BLOG_GIT_METADATA END -->
+

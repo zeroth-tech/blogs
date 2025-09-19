@@ -126,3 +126,55 @@ I could keep going, but it makes me depressed...
 We need to start somewhere and Zeroth Technology is eager to do our part.  We don't have all the answers to this and we think it must evolve rapidly to stay a step ahead.  We look forward to community inputs to help us do a better job of face detection, noise filtering and color mixing.  We want to make a mobile version that is super simple to use and we want to have a host of independent verifying solutions.  
 
 We don't think every live stream needs to be authenticated, but we need to have the tools ready for the ones that do.
+
+<!-- BLOG_GIT_METADATA START -->
+
+<div class="blog-git-metadata" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest);">
+  <details style="background: var(--md-code-bg-color); padding: 0.5rem 1rem; border-radius: 0.2rem;">
+    <summary style="cursor: pointer; font-weight: 500; color: var(--md-default-fg-color--light);">
+      📝 Content Provenance
+    </summary>
+    <div style="margin-top: 1rem; font-size: 0.9em;">
+      <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-07-08</p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2024-07-08</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 1</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">a4c5028d73f2c0b2...</code></p>
+      
+      <div style="margin-top: 1rem;">
+        <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
+        <table style="width: 100%; font-size: 0.85em; margin-top: 0.5rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--md-default-fg-color--lightest);">
+              <th style="text-align: left; padding: 0.25rem;">Date</th>
+              <th style="text-align: left; padding: 0.25rem;">Author</th>
+              <th style="text-align: left; padding: 0.25rem;">Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 0.25rem;">2024-07-08</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Uptated to BLT post</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p style="margin-top: 1rem; margin-bottom: 0;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/blinky_light_thing.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+          View Full History on GitHub →
+        </a>
+      </p>
+    </div>
+  </details>
+  
+  <div style="margin-top: 0.5rem; font-size: 0.8em; color: var(--md-default-fg-color--lighter);">
+    <p style="margin: 0;">
+      <em>This metadata provides cryptographic proof of this document's creation and modification history. 
+      The SHA-256 hash can be used to verify the document's integrity, while the Git history shows its evolution over time.</em>
+    </p>
+  </div>
+</div>
+
+<!-- BLOG_GIT_METADATA END -->
+

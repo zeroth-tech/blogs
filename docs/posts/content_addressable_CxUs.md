@@ -74,3 +74,55 @@ The combination of smart IDs, multi-hash content addressing, and immutable versi
 This is more than a technical solution - it's a new way of thinking about knowledge itself. In a world where information is abundant but trust is scarce, content addressability provides the foundation for systems we can trust not because we trust their operators, but because we can verify their operation.
 
 The tools exist. The principles are proven. The question now is whether we'll use them to build the distributed knowledge systems our interconnected world needs.
+
+<!-- BLOG_GIT_METADATA START -->
+
+<div class="blog-git-metadata" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest);">
+  <details style="background: var(--md-code-bg-color); padding: 0.5rem 1rem; border-radius: 0.2rem;">
+    <summary style="cursor: pointer; font-weight: 500; color: var(--md-default-fg-color--light);">
+      📝 Content Provenance
+    </summary>
+    <div style="margin-top: 1rem; font-size: 0.9em;">
+      <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2025-06-18</p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-06-18</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 1</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">ce08ab0d6074808d...</code></p>
+      
+      <div style="margin-top: 1rem;">
+        <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
+        <table style="width: 100%; font-size: 0.85em; margin-top: 0.5rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--md-default-fg-color--lightest);">
+              <th style="text-align: left; padding: 0.25rem;">Date</th>
+              <th style="text-align: left; padding: 0.25rem;">Author</th>
+              <th style="text-align: left; padding: 0.25rem;">Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 0.25rem;">2025-06-18</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">added CA-CxU</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p style="margin-top: 1rem; margin-bottom: 0;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/content_addressable_CxUs.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+          View Full History on GitHub →
+        </a>
+      </p>
+    </div>
+  </details>
+  
+  <div style="margin-top: 0.5rem; font-size: 0.8em; color: var(--md-default-fg-color--lighter);">
+    <p style="margin: 0;">
+      <em>This metadata provides cryptographic proof of this document's creation and modification history. 
+      The SHA-256 hash can be used to verify the document's integrity, while the Git history shows its evolution over time.</em>
+    </p>
+  </div>
+</div>
+
+<!-- BLOG_GIT_METADATA END -->
+

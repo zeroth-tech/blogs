@@ -102,3 +102,64 @@ All of this tech is publicly available. Today. It's not hidden behind some gover
 This tech is a tool, like any other. But we need to wake up to its implications. In a world where seeing isn't believing, where do we place our trust? How do we verify identity in a digital age?
 
 This isn't just about elections or celebrity deepfakes. It's about the very fabric of our digital interactions. How do we conduct business, form relationships, or make decisions in a world where any digital interaction could be artificially generated?
+
+<!-- BLOG_GIT_METADATA START -->
+
+<div class="blog-git-metadata" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest);">
+  <details style="background: var(--md-code-bg-color); padding: 0.5rem 1rem; border-radius: 0.2rem;">
+    <summary style="cursor: pointer; font-weight: 500; color: var(--md-default-fg-color--light);">
+      📝 Content Provenance
+    </summary>
+    <div style="margin-top: 1rem; font-size: 0.9em;">
+      <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-07-23</p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2024-07-23</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 3</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">2f6248cb683c15d3...</code></p>
+      
+      <div style="margin-top: 1rem;">
+        <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
+        <table style="width: 100%; font-size: 0.85em; margin-top: 0.5rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--md-default-fg-color--lightest);">
+              <th style="text-align: left; padding: 0.25rem;">Date</th>
+              <th style="text-align: left; padding: 0.25rem;">Author</th>
+              <th style="text-align: left; padding: 0.25rem;">Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 0.25rem;">2024-07-23</td>
+              <td style="padding: 0.25rem;">AnkMister</td>
+              <td style="padding: 0.25rem;">adv model back to draft</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2024-07-23</td>
+              <td style="padding: 0.25rem;">AnkMister</td>
+              <td style="padding: 0.25rem;">test adv model</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2024-07-23</td>
+              <td style="padding: 0.25rem;">AnkMister</td>
+              <td style="padding: 0.25rem;">draft adv model</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p style="margin-top: 1rem; margin-bottom: 0;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/adversarial_model.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+          View Full History on GitHub →
+        </a>
+      </p>
+    </div>
+  </details>
+  
+  <div style="margin-top: 0.5rem; font-size: 0.8em; color: var(--md-default-fg-color--lighter);">
+    <p style="margin: 0;">
+      <em>This metadata provides cryptographic proof of this document's creation and modification history. 
+      The SHA-256 hash can be used to verify the document's integrity, while the Git history shows its evolution over time.</em>
+    </p>
+  </div>
+</div>
+
+<!-- BLOG_GIT_METADATA END -->

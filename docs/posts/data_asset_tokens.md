@@ -37,3 +37,60 @@ So to treat data (like your personal medical records) as an object (that is to s
 I would propose a blend of the above.  A token can be defined that represents the attributes of the data set - these being the characteristics that, if changed, you would have a different object.  On this ‘Data Token’ we can assign rights and manage claims like we do for physical product tokens.  We can combine data tokens by burning and minting like we do for raw materials consumption.  We can associate data by placing the tokens in the same wallet ([wallets as containers](https://zeroth-tech.github.io/blogs/2024/07/22/contract-wallets-as-containers/)). However, these tokens can also have a pointer to a dynamic data set that, at any point in time, is the state.  The claims one has on the data token define how (or if) they are able to access the referenced data.  We can get creative with how to manage the state of the referenced data, but I don’t think that needs to be over engineered - though we always need to consider that it is the responsibility of the data steward to make the referenced data available when a claim is proven… if they fail in that duty it doesn’t matter what rights you have, you can't get your data.  Unless everyone is willing to self custody their data (which is probably the worst idea I can think of…) data stewardship should be a service you pay for.  —> there is a reason I am a big fan of Filecoin and still hopeful for Eigen DA (not just because I run an EigenPod…)
 
 In summary, I think the momentum is still gathering.  Data Asset Tokens offer much better control over data and a clear definition of rights - as well as a way to prove and/or transfer those rights in the form of claims.  When I write about supply chain I talk about the shift from process oriented data to product oriented data - perhaps we need to reframe that as a shift to asset oriented data or identity oriented data (though I’m still uncomfortable thinking of identity as an asset…)
+
+<!-- BLOG_GIT_METADATA START -->
+
+<div class="blog-git-metadata" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest);">
+  <details style="background: var(--md-code-bg-color); padding: 0.5rem 1rem; border-radius: 0.2rem;">
+    <summary style="cursor: pointer; font-weight: 500; color: var(--md-default-fg-color--light);">
+      📝 Content Provenance
+    </summary>
+    <div style="margin-top: 1rem; font-size: 0.9em;">
+      <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-11-01</p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2024-11-01</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 2</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">9ddc8bfe00e281e4...</code></p>
+      
+      <div style="margin-top: 1rem;">
+        <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
+        <table style="width: 100%; font-size: 0.85em; margin-top: 0.5rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--md-default-fg-color--lightest);">
+              <th style="text-align: left; padding: 0.25rem;">Date</th>
+              <th style="text-align: left; padding: 0.25rem;">Author</th>
+              <th style="text-align: left; padding: 0.25rem;">Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 0.25rem;">2024-11-01</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Update data_asset_tokens.md</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2024-11-01</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">posting data asset tokens blog and updates to BLT</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p style="margin-top: 1rem; margin-bottom: 0;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/b9419ce5299242a41df9572414a7e2e6dd8eecf8/docs/posts/data_asset_tokens.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+          View Full History on GitHub →
+        </a>
+      </p>
+    </div>
+  </details>
+  
+  <div style="margin-top: 0.5rem; font-size: 0.8em; color: var(--md-default-fg-color--lighter);">
+    <p style="margin: 0;">
+      <em>This metadata provides cryptographic proof of this document's creation and modification history. 
+      The SHA-256 hash can be used to verify the document's integrity, while the Git history shows its evolution over time.</em>
+    </p>
+  </div>
+</div>
+
+<!-- BLOG_GIT_METADATA END -->
+
