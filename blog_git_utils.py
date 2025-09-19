@@ -275,7 +275,7 @@ def get_file_last_modified(file_path: Path, repo_path: Path = Path("."), exclude
     return None
 
 
-def get_recent_commits(file_path: Path, repo_path: Path = Path("."), limit: int = 5) -> List[Dict[str, str]]:
+def get_recent_commits(file_path: Path, repo_path: Path = Path("."), limit: int = 5, exclude_frontmatter_only: bool = False) -> List[Dict[str, str]]:
     """
     Get recent Git commits for a file.
     
@@ -283,14 +283,18 @@ def get_recent_commits(file_path: Path, repo_path: Path = Path("."), limit: int 
         file_path: Path to the file
         repo_path: Path to git repository root
         limit: Maximum number of commits to return
+        exclude_frontmatter_only: If True, exclude commits that only changed frontmatter
         
     Returns:
         List of commit dictionaries with keys: hash, author, date, message
     """
     relative_path = file_path.relative_to(repo_path)
     
+    # Get more commits than needed in case we need to filter out frontmatter-only ones
+    fetch_limit = limit * 3 if exclude_frontmatter_only else limit
+    
     output = run_git_command([
-        "log", f"-{limit}", "--follow",
+        "log", f"-{fetch_limit}", "--follow",
         "--pretty=format:%H|%an|%aI|%s",
         "--", str(relative_path)
     ], repo_path)
@@ -303,12 +307,22 @@ def get_recent_commits(file_path: Path, repo_path: Path = Path("."), limit: int 
         if line:
             parts = line.split('|', 3)
             if len(parts) == 4:
+                commit_hash = parts[0]
+                
+                # If excluding frontmatter-only changes, check if this commit qualifies
+                if exclude_frontmatter_only and is_frontmatter_only_change(commit_hash, file_path, repo_path):
+                    continue
+                
                 commits.append({
-                    'hash': parts[0][:7],  # Short hash
+                    'hash': commit_hash[:7],  # Short hash
                     'author': parts[1],
                     'date': parts[2][:10],  # YYYY-MM-DD format
                     'message': parts[3]
                 })
+                
+                # Stop once we have enough commits
+                if len(commits) >= limit:
+                    break
     
     return commits
 
@@ -346,7 +360,7 @@ def get_file_git_metadata(file_path: Path, repo_path: Path = Path("."), exclude_
     Args:
         file_path: Path to the file
         repo_path: Path to git repository root
-        exclude_frontmatter_only: If True, exclude frontmatter-only changes from last modified date
+        exclude_frontmatter_only: If True, exclude frontmatter-only changes from last modified date and recent commits
         
     Returns:
         Dictionary containing all Git metadata
@@ -356,7 +370,7 @@ def get_file_git_metadata(file_path: Path, repo_path: Path = Path("."), exclude_
         'github_url': get_github_url(file_path, repo_path),
         'created_date': get_file_creation_date(file_path, repo_path),
         'modified_date': get_file_last_modified(file_path, repo_path, exclude_frontmatter_only),
-        'recent_commits': get_recent_commits(file_path, repo_path, limit=3),
+        'recent_commits': get_recent_commits(file_path, repo_path, limit=3, exclude_frontmatter_only=exclude_frontmatter_only),
         'total_commits': get_commit_count(file_path, repo_path),
         'file_path': str(file_path.relative_to(repo_path))
     }

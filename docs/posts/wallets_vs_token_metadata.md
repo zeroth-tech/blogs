@@ -44,8 +44,8 @@ Can we place a soul bound nft in a wallet that has establishment level  - could 
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-06-15</p>
       <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-19</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 3</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">5d954b279b7b3e0c...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 4</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">1e7fda6604d977b7...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
@@ -66,11 +66,6 @@ Can we place a soul bound nft in a wallet that has establishment level  - could 
             <tr>
               <td style="padding: 0.25rem;">2024-06-15</td>
               <td style="padding: 0.25rem;">James Canterbury</td>
-              <td style="padding: 0.25rem;">fixed tags</td>
-            </tr>
-            <tr>
-              <td style="padding: 0.25rem;">2024-06-15</td>
-              <td style="padding: 0.25rem;">James Canterbury</td>
               <td style="padding: 0.25rem;">added a bunch of old blogs...</td>
             </tr>
           </tbody>
@@ -78,7 +73,7 @@ Can we place a soul bound nft in a wallet that has establishment level  - could 
       </div>
       
       <p style="margin-top: 1rem; margin-bottom: 0;">
-        <a href="https://github.com/zeroth-tech/blogs/blob/d8b1cb6671276034987e8ed4c379922236f926e8/docs/posts/wallets_vs_token_metadata.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/ec5c1a2c349fc4ab14165cffc3542996b70b2911/docs/posts/wallets_vs_token_metadata.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
           View Full History on GitHub →
         </a>
       </p>
