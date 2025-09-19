@@ -16,7 +16,7 @@ Our work spans three key areas of research and development:
     </div>
   </a>
   
-  <a href="category/identity-authenticity/" class="landing-button vero-button">
+  <a href="category/identity--authenticity/" class="landing-button vero-button">
     <div class="button-icon">
       <img src="images/vero.svg" alt="Vero" class="custom-icon">
     </div>
