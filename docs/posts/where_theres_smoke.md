@@ -18,7 +18,7 @@ comments: true
 
 # Friction Makes Smoke, and Where There's Smoke...
 
-Eons ago in March 2025 I wrote a probably-too-long paper about the nature of establishing relationships between humans over digital channels. [Digital Identity Verification](digital_identity_verification.md) was an attempt at a framework to categorize how trust is formed between people — and then use that framework to systematically explain how bad actors manipulate that trust to perpetuate identity fraud.
+What seems like eons ago, back in March 2025 I wrote a probably-too-long paper about the nature of establishing relationships between humans over digital channels. [Digital Identity Verification](digital_identity_verification.md) was an attempt at a framework to categorize how trust is formed between people — and then use that framework to systematically explain how bad actors manipulate that trust to perpetuate identity fraud.
 
 I still think the paper is accurate, though I missed a critical point. I had positioned my argument around people establishing trust with other people via technology. What I overlooked is that the majority of technical approaches today focus on establishing trust between devices and/or software and, by extension, the people using them. These approaches often assume that the identity of the person becomes inherent to the device.
 
@@ -64,7 +64,7 @@ Another common push back is: “If I can prove my identity via a Temporal Identi
 
 Answer: you don’t. Vero is a layered cake — you can consume as much as you want. The one-time biometric (the blinking light) is the icing.  While it may be the most novel part of our design it is not something we intend people to do every time they interact.
 
-This perspective also raises the point that the Temporal Identity Proof (TIP) and its real-time verification is valuable on its own.  To understand why you need to ground yourself in one of our first principles-*Vero does not seek to own your identity*.  We think there are some great (and many not-so-great) identity solutions out there.  We also think the identity space will continue to evolve and that decentralized technologies like DIDs and ZK Passports are the way of the future; but these are generally not in our hands right now and there is still a very long learning curve before they are mainstream.  In the meantime, TIPs let you use the credentials and reputations you already control.
+This perspective also raises the point that the Temporal Identity Proof (TIP) and its real-time verification is valuable on its own.  To understand why, you need to ground yourself in one of our first principles-*Vero does not seek to own your identity*.  We think there are some great (and many not-so-great) identity solutions out there.  We also think the identity space will continue to evolve and that decentralized technologies like DIDs and ZK Passports are the way of the future; but these are generally not in our hands right now and there is still a very long learning curve before they are mainstream.  In the meantime, TIPs let you use the credentials and reputations you already control.
 
 And remember — reputation often matters more than formal identity. A driver’s license might prove I’m legally allowed to drive in New Jersey, but it doesn’t prove I’m the person writing this blog. My GitHub commit history does. Likewise, airport security doesn’t care about my GitHub handle. Different contexts demand different proofs.
 
@@ -92,7 +92,7 @@ That’s it. TIPs are created locally and destroyed after use. No persistent tem
 
 ## Where's the Fire?
 
-At the start I said: friction makes smoke. And in Vero, smoke is a good thing. It signals intent. It shows someone is willing to tolerate a little inconvenience to prove trustworthiness.
+At the start I said: friction makes smoke. And in Vero, smoke is a good thing. It signals intent. It shows someone is willing to take extra steps to prove trustworthiness.
 
 We flip the proverb on its head:
 Where there is smoke, there is safety. And when there is no smoke — that’s when you should look for fire.
