@@ -1,0 +1,1641 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A place for our latest thinking and a record of our previous thoughts">
+      
+      
+      
+        <link rel="canonical" href="https://zeroth.tech/blogs/2024/08/01/blinky-light-thing-an-approach-for-verifiable-real-time-video/">
+      
+      
+        <link rel="prev" href="../../../07/22/contract-wallets-as-containers/">
+      
+      
+        <link rel="next" href="../../../09/21/nexus-a-counter-argument-to-blockchains-achilles-heel/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Blinky Light Thing: An Approach for Verifiable Real-Time Video - Our Writings</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1%207.775V2.75C1%201.784%201.784%201%202.75%201h5.025c.464%200%20.91.184%201.238.513l6.25%206.25a1.75%201.75%200%200%201%200%202.474l-5.026%205.026a1.75%201.75%200%200%201-2.474%200l-6.25-6.25A1.75%201.75%200%200%201%201%207.775m1.5%200c0%20.066.026.13.073.177l6.25%206.25a.25.25%200%200%200%20.354%200l5.025-5.025a.25.25%200%200%200%200-.354l-6.25-6.25a.25.25%200%200%200-.177-.073H2.75a.25.25%200%200%200-.25.25ZM6%205a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.5%201.75v11.5c0%20.138.112.25.25.25h3.17a.75.75%200%200%201%200%201.5H2.75A1.75%201.75%200%200%201%201%2013.25V1.75C1%20.784%201.784%200%202.75%200h8.5C12.216%200%2013%20.784%2013%201.75v7.736a.75.75%200%200%201-1.5%200V1.75a.25.25%200%200%200-.25-.25h-8.5a.25.25%200%200%200-.25.25m13.274%209.537zl-4.557%204.45a.75.75%200%200%201-1.055-.008l-1.943-1.95a.75.75%200%200%201%201.062-1.058l1.419%201.425%204.026-3.932a.75.75%200%201%201%201.048%201.074M4.75%204h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M4%207.75A.75.75%200%200%201%204.75%207h2a.75.75%200%200%201%200%201.5h-2A.75.75%200%200%201%204%207.75%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.5%207.75A.75.75%200%200%201%207.25%207h1a.75.75%200%200%201%20.75.75v2.75h.25a.75.75%200%200%201%200%201.5h-2a.75.75%200%200%201%200-1.5h.25v-2h-.25a.75.75%200%200%201-.75-.75M8%206a1%201%200%201%201%200-2%201%201%200%200%201%200%202%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3.499.75a.75.75%200%200%201%201.5%200v.996C5.9%202.903%206.793%203.65%207.662%204.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873%2010.794-.045%2012.622.26%2014.408.558%2016%201.94%2016%204.25c0%201.278-.954%202.575-2.44%202.734l.146.508.065.22c.203.701.412%201.455.476%202.226.142%201.707-.4%203.03-1.487%203.898C11.714%2014.671%2010.27%2015%208.75%2015h-6a.75.75%200%200%201%200-1.5h1.376a4.5%204.5%200%200%201-.563-1.191%203.84%203.84%200%200%201-.05-2.063%204.65%204.65%200%200%201-2.025-.293.75.75%200%200%201%20.525-1.406c1.357.507%202.376-.006%202.698-.318l.009-.01a.747.747%200%200%201%201.06%200%20.75.75%200%200%201-.012%201.074c-.912.92-.992%201.835-.768%202.586.221.74.745%201.337%201.196%201.621H8.75c1.343%200%202.398-.296%203.074-.836.635-.507%201.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.4%202.4%200%200%201-.507-.441%203.1%203.1%200%200%201-.633-1.248.75.75%200%200%201%201.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738%200%201.25-.615%201.25-1.25%200-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706%201.345-.46.92-.27%201.774.019%203.062l.042.19.01.05c.348.443.666.949.94%201.553a.75.75%200%201%201-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7%205.527c-.814-.68-1.75-1.462-2.692-2.619a3.7%203.7%200%200%200-1.023.88c-.406.495-.663%201.036-.722%201.508.116.122.306.21.591.239.388.038.797-.06%201.032-.19a.75.75%200%200%201%20.728%201.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75%205.677V5.5c0-.984.48-1.94%201.077-2.664.46-.559%201.05-1.055%201.673-1.353z%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M13.78%204.22a.75.75%200%200%201%200%201.06l-7.25%207.25a.75.75%200%200%201-1.06%200L2.22%209.28a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018L6%2010.94l6.72-6.72a.75.75%200%200%201%201.06%200%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.92%206.085h.001a.749.749%200%201%201-1.342-.67c.169-.339.436-.701.849-.977C6.845%204.16%207.369%204%208%204a2.76%202.76%200%200%201%201.637.525c.503.377.863.965.863%201.725%200%20.448-.115.83-.329%201.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6%206%200%200%200-.26.16%201%201%200%200%200-.276.245.75.75%200%200%201-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1%201%200%200%200%20.277-.245C8.96%206.514%209%206.427%209%206.25a.61.61%200%200%200-.262-.525A1.27%201.27%200%200%200%208%205.5c-.369%200-.595.09-.74.187a1%201%200%200%200-.34.398M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6.457%201.047c.659-1.234%202.427-1.234%203.086%200l6.082%2011.378A1.75%201.75%200%200%201%2014.082%2015H1.918a1.75%201.75%200%200%201-1.543-2.575Zm1.763.707a.25.25%200%200%200-.44%200L1.698%2013.132a.25.25%200%200%200%20.22.368h12.164a.25.25%200%200%200%20.22-.368Zm.53%203.996v2.5a.75.75%200%200%201-1.5%200v-2.5a.75.75%200%200%201%201.5%200M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.344%202.343za8%208%200%200%201%2011.314%2011.314A8.002%208.002%200%200%201%20.234%2010.089a8%208%200%200%201%202.11-7.746m1.06%2010.253a6.5%206.5%200%201%200%209.108-9.275%206.5%206.5%200%200%200-9.108%209.275M6.03%204.97%208%206.94l1.97-1.97a.749.749%200%200%201%201.275.326.75.75%200%200%201-.215.734L9.06%208l1.97%201.97a.749.749%200%200%201-.326%201.275.75.75%200%200%201-.734-.215L8%209.06l-1.97%201.97a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L6.94%208%204.97%206.03a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M9.504.43a1.516%201.516%200%200%201%202.437%201.713L10.415%205.5h2.123c1.57%200%202.346%201.909%201.22%203.004l-7.34%207.142a1.25%201.25%200%200%201-.871.354h-.302a1.25%201.25%200%200%201-1.157-1.723L5.633%2010.5H3.462c-1.57%200-2.346-1.909-1.22-3.004zm1.047%201.074L3.286%208.571A.25.25%200%200%200%203.462%209H6.75a.75.75%200%200%201%20.694%201.034l-1.713%204.188%206.982-6.793A.25.25%200%200%200%2012.538%207H9.25a.75.75%200%200%201-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005%200-.009.004%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4.72.22a.75.75%200%200%201%201.06%200l1%20.999a3.5%203.5%200%200%201%202.441%200l.999-1a.748.748%200%200%201%201.265.332.75.75%200%200%201-.205.729l-.775.776c.616.63.995%201.493.995%202.444v.327q0%20.15-.025.292c.408.14.764.392%201.029.722l1.968-.787a.75.75%200%200%201%20.556%201.392L13%207.258V9h2.25a.75.75%200%200%201%200%201.5H13v.5q-.002.615-.141%201.186l2.17.868a.75.75%200%200%201-.557%201.392l-2.184-.873A5%205%200%200%201%208%2016a5%205%200%200%201-4.288-2.427l-2.183.873a.75.75%200%200%201-.558-1.392l2.17-.868A5%205%200%200%201%203%2011v-.5H.75a.75.75%200%200%201%200-1.5H3V7.258L.971%206.446a.75.75%200%200%201%20.558-1.392l1.967.787c.265-.33.62-.583%201.03-.722a1.7%201.7%200%200%201-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72%201.28a.75.75%200%200%201%200-1.06m.53%206.28a.75.75%200%200%200-.75.75V11a3.5%203.5%200%201%200%207%200V7.25a.75.75%200%200%200-.75-.75ZM6.173%205h3.654A.17.17%200%200%200%2010%204.827V4.5a2%202%200%201%200-4%200v.327c0%20.096.077.173.173.173%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5%205.782V2.5h-.25a.75.75%200%200%201%200-1.5h6.5a.75.75%200%200%201%200%201.5H11v3.282l3.666%205.76C15.619%2013.04%2014.543%2015%2012.767%2015H3.233c-1.776%200-2.852-1.96-1.899-3.458Zm-2.4%206.565a.75.75%200%200%200%20.633%201.153h9.534a.75.75%200%200%200%20.633-1.153L12.225%2010.5h-8.45ZM9.5%202.5h-3V6c0%20.143-.04.283-.117.403L4.73%209h6.54L9.617%206.403A.75.75%200%200%201%209.5%206Z%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1.75%202.5h10.5a.75.75%200%200%201%200%201.5H1.75a.75.75%200%200%201%200-1.5m4%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5m0%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5M2.5%207.75v6a.75.75%200%200%201-1.5%200v-6a.75.75%200%200%201%201.5%200%22/%3E%3C/svg%3E');--md-admonition-icon--pyrana:url('data:image/svg+xml;charset=utf-8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3C%21--%20Created%20with%20Inkscape%20%28http%3A//www.inkscape.org/%29%20--%3E%3Csvg%20%20%20width%3D%22187.43132mm%22%20%20%20height%3D%22115.7082mm%22%20%20%20viewBox%3D%220%200%20187.43132%20115.7082%22%20%20%20version%3D%221.1%22%20%20%20id%3D%22svg1%22%20%20%20xml%3Aspace%3D%22preserve%22%20%20%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20%20%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cdefs%20%20%20%20%20id%3D%22defs1%22%20/%3E%3Cg%20%20%20%20%20id%3D%22layer2%22%20%20%20%20%20transform%3D%22translate%28-8.9998925%2C-78.144725%29%22%3E%3Cg%20%20%20%20%20%20%20id%3D%22g3%22%20%20%20%20%20%20%20transform%3D%22translate%28-1.5376314%2C-16.401402%29%22%3E%3Cpath%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%23ed7445%3Bfill-opacity%3A1%3Bfill-rule%3Aevenodd%3Bstroke%3Anone%3Bstroke-width%3A0.1%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%3Bstroke-dasharray%3Anone%22%20%20%20%20%20%20%20%20%20d%3D%22m%20151.03312%2C153.34613%20c%202.30067%2C-0.9431%205.20406%2C-2.23479%207.43606%2C-4.72324%20-3.98251%2C-0.80633%20-7.28911%2C-2.10541%20-10.37044%2C-2.86321%20-2.34172%2C2.18296%200.0746%2C6.25081%202.93438%2C7.58645%20z%22%20%20%20%20%20%20%20%20%20id%3D%22path18%22%20/%3E%3Cpath%20%20%20%20%20%20%20%20%20id%3D%22path17%22%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%23394150%3Bfill-opacity%3A1%3Bfill-rule%3Aevenodd%3Bstroke%3Anone%3Bstroke-width%3A0.1%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%3Bstroke-dasharray%3Anone%22%20%20%20%20%20%20%20%20%20d%3D%22m%20160.19412%2C148.40778%20c%20-11.24869%2C-4.47501%20-11.23044%2C-10.2714%20-30.8468%2C-10.3777%205.03998%2C0.75726%208.24428%2C4.95475%209.80351%2C10.23784%201.08824%2C3.68728%207.7467%2C5.75673%2011.88229%2C5.07821%20-2.84081%2C-1.56147%20-5.14483%2C-5.01256%20-2.93438%2C-7.58645%202.28202%2C1.00462%207.40898%2C3.68953%2012.09538%2C2.6481%20z%20m%2021.74481%2C40.76262%20-1.06099%2C-10.27367%20-6.951%2C8.69679%20-1.87182%2C-0.4613%20c%20-0.68585%2C-2.73606%20-2.12743%2C-9.45219%20-2.12743%2C-9.45219%20l%20-4.32118%2C6.64342%20-20.58529%2C-8.00325%20c%209.27623%2C-6.84069%2015.67389%2C-8.30216%2015.67389%2C-8.30216%200%2C0%200.2687%2C5.5013%201.35984%2C11.0934%204.65531%2C-4.52523%206.58447%2C-12.81109%206.58447%2C-12.81109%20l%201.35984%2C-0.7157%20c%202.7191%2C5.23865%203.79322%2C13.24051%203.79322%2C13.24051%204.41577%2C-5.643%204.78974%2C-10.18302%205.7972%2C-15.38762%202.86829%2C3.38384%204.68037%2C9.29697%205.79719%2C12.38167%204.12277%2C-5.00275%204.72496%2C-14.21403%204.72496%2C-14.21403%20m%20-8.1729%2C27.56522%20c%202.58716%2C-3.00277%207.93365%2C-13.02713%208.04002%2C-12.29573%200.37393%2C2.57116%200.86503%2C7.01762%20-1.33343%2C15.24718%203.16037%2C1.01752%202.41482%2C0.65648%203.01723%2C1.08909%20-36.76844%2C19.20722%20-72.61809%2C5.838%20-72.61809%2C5.838%20-4.44479%2C2.72428%20-20.004346%2C12.12093%20-42.278721%2C11.13293%206.795699%2C-4.85729%2014.275183%2C-9.65264%2019.090204%2C-17.01701%20-7.393739%2C-3.7953%20-12.671667%2C-7.14526%20-12.671667%2C-7.14526%200%2C0%20-14.733062%2C12.01054%20-38.036244%2C13.0579%209.69958%2C-5.66231%2016.681184%2C-15.55657%2022.092707%2C-25.53059%20-4.409971%2C-4.99872%20-10.622385%2C-7.87346%20-16.52667%2C-10.80569%20-11.577791%2C18.37572%20-30.479348%2C26.35797%20-38.435253%2C28.89912%200%2C0%2019.277454%2C-24.88612%2019.246736%2C-39.57903%20-2.1054%2C-14.58121%20-20.988227%2C-37.2883%20-20.988227%2C-37.2883%200%2C0%2017.534697%2C0.72007%2037.65239%2C23.5457%209.97259%2C-9.35053%2021.786814%2C-17.36245%2034.264669%2C-23.01509%20-0.774426%2C-7.91746%20-6.727553%2C-14.88514%20-11.906353%2C-20.747046%2018.786477%2C-0.33871%2031.555699%2C7.591916%2044.840549%2C17.987276%2035.23612%2C7.76867%2071.32767%2C34.44752%2082.58006%2C42.65846%20-7.85701%2C6.40287%200%2C0%20-7.85701%2C6.40287%20m%20-21.9077%2C31.49442%20c%200%2C0%20-4.34389%2C-2.61881%20-17.78816%2C-7.75723%20-5.93838%2C-2.26965%20-16.9293%2C-8.0435%20-16.9293%2C-8.0435%200%2C0%205.9308%2C-6.691%209.64744%2C-9.07325%2010.7295%2C-6.87728%2022.91459%2C-11.85271%2035.43061%2C-14.36821%20-17.84768%2C-13.98398%20-37.42598%2C-26.12338%20-59.67716%2C-31.26264%20-19.918479%2C-2.76938%20-37.628779%2C0.38854%20-68.66267%2C26.47358%200.158704%2C2.11992%200.158704%2C2.11992%200.158704%2C2.11992%208.973705%2C5.11651%2022.786093%2C13.55009%2034.769819%2C22.92226%2012.08419%2C9.45075%2022.353497%2C17.10642%2032.815707%2C17.81831%200%2C0%20-10.77411%2C-13.20119%20-7.58461%2C-33.39737%201.09878%2C-6.9576%206.34773%2C-12.692%206.34773%2C-12.692%20-5.08099%2C11.96543%20-1.89465%2C32.62807%2010.35547%2C42.72151%2017.6814%2C10.17318%2041.11642%2C4.53862%2041.11642%2C4.53862%20z%20M%2077.956563%2C154.54594%20c%209.231454%2C-9.6777%2022.000514%2C-16.36213%2035.189587%2C-18.34582%20-16.275208%2C16.05807%20-16.683558%2C24.34366%20-8.82885%2C46.01082%20-9.494752%2C-8.59788%20-14.659985%2C-19.76811%20-26.360737%2C-27.665%20z%22%20/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');}</style>
+
+
+
+  
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag.md-tag--supply{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6.122.392a1.75%201.75%200%200%201%201.756%200l5.25%203.045c.54.313.872.89.872%201.514V7.25a.75.75%200%200%201-1.5%200V5.677L7.75%208.432v6.384a1%201%200%200%201-1.502.865L.872%2012.563A1.75%201.75%200%200%201%200%2011.049V4.951c0-.624.332-1.2.872-1.514ZM7.125%201.69a.25.25%200%200%200-.25%200l-4.63%202.685L7%207.133l4.755-2.758ZM1.5%2011.049a.25.25%200%200%200%20.125.216l4.625%202.683V8.432L1.5%205.677Zm10.828%203.684%201.173-1.233H10.25a.75.75%200%200%201%200-1.5h3.251l-1.173-1.233a.75.75%200%201%201%201.087-1.034l2.378%202.5a.75.75%200%200%201%200%201.034l-2.378%202.5a.75.75%200%200%201-1.087-1.034%22/%3E%3C/svg%3E');}.md-tag.md-tag--token{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.0.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M128%2096V80c0-44.2%2086-80%20192-80s192%2035.8%20192%2080v16c0%2030.6-41.3%2057.2-102%2070.7-2.4-2.8-4.9-5.5-7.4-8-15.5-15.3-35.5-26.9-56.4-35.5-41.9-17.5-96.5-27.1-154.2-27.1-21.9%200-43.3%201.4-63.8%204.1-.2-1.3-.2-2.7-.2-4.1zm304%20257v-46.2c15.1-3.9%2029.3-8.5%2042.2-13.9%2013.2-5.5%2026.1-12.2%2037.8-20.3V288c0%2026.8-31.5%2050.5-80%2065m0-96v-33c0-4.5-.4-8.8-1-13%2015.5-3.9%2030-8.6%2043.2-14.2s26.1-12.2%2037.8-20.3v15.4c0%2026.8-31.5%2050.5-80%2065zM0%20240v-16c0-44.2%2086-80%20192-80s192%2035.8%20192%2080v16c0%2044.2-86%2080-192%2080S0%20284.2%200%20240m384%2096c0%2044.2-86%2080-192%2080S0%20380.2%200%20336v-15.4c11.6%208.1%2024.5%2014.7%2037.8%2020.3C79.7%20358.4%20134.3%20368%20192%20368s112.3-9.7%20154.2-27.1c13.2-5.5%2026.1-12.2%2037.8-20.3zm0%2080.6V432c0%2044.2-86%2080-192%2080S0%20476.2%200%20432v-15.4c11.6%208.1%2024.5%2014.7%2037.8%2020.3C79.7%20454.4%20134.3%20464%20192%20464s112.3-9.7%20154.2-27.1c13.2-5.5%2026.1-12.2%2037.8-20.3%22/%3E%3C/svg%3E');}.md-tag.md-tag--worlds{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%200a8%208%200%201%201%200%2016A8%208%200%200%201%208%200M5.78%208.75a9.64%209.64%200%200%200%201.363%204.177q.383.64.857%201.215c.245-.296.551-.705.857-1.215A9.64%209.64%200%200%200%2010.22%208.75Zm4.44-1.5a9.64%209.64%200%200%200-1.363-4.177c-.307-.51-.612-.919-.857-1.215a10%2010%200%200%200-.857%201.215A9.64%209.64%200%200%200%205.78%207.25Zm-5.944%201.5H1.543a6.51%206.51%200%200%200%204.666%205.5q-.184-.271-.352-.552c-.715-1.192-1.437-2.874-1.581-4.948m-2.733-1.5h2.733c.144-2.074.866-3.756%201.58-4.948q.18-.295.353-.552a6.51%206.51%200%200%200-4.666%205.5m10.181%201.5c-.144%202.074-.866%203.756-1.58%204.948q-.18.296-.353.552a6.51%206.51%200%200%200%204.666-5.5Zm2.733-1.5a6.51%206.51%200%200%200-4.666-5.5q.184.272.353.552c.714%201.192%201.436%202.874%201.58%204.948Z%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/code_wrap.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/pyrana.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-3LHYGRXZ4Q"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-3LHYGRXZ4Q",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-3LHYGRXZ4Q",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#blinky-light-thing-an-approach-for-verifiable-real-time-video" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Our Writings" class="md-header__button md-logo" aria-label="Our Writings" data-md-component="logo">
+      
+  <img src="../../../../images/Zerothlogo_white0.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Our Writings
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Blinky Light Thing: An Approach for Verifiable Real-Time Video
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zeroth-tech/blogs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Our Writings" class="md-nav__button md-logo" aria-label="Our Writings" data-md-component="logo">
+      
+  <img src="../../../../images/Zerothlogo_white0.svg" alt="logo">
+
+    </a>
+    Our Writings
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zeroth-tech/blogs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Archive
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    September 2025
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    December 2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    November 2023
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Categories
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/agentic-ai-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agentic AI Research
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/identity--authenticity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Identity &amp; Authenticity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/supply-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supply Chain
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executive Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Issue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Objective
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Approach
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Approach">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-hardware-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Hardware Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-software-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Software Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-cryptographic-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Cryptographic Principles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-software-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Software Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Software Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-chunking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Chunking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blink-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blink Detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aliases-and-reputations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aliases and Reputations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-hardware-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Hardware Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Build
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Results
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-some-things-that-didnt-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Some Things That Didn't Work...
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-further-explorations" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Further Explorations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/jamescbury.png" alt="Jamey Canterbury">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          <a href="https://twitter.com/intent/follow?screen_name=jamescbury">Jamey Canterbury</a>
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/ankmister.png" alt="Ankur Garg">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          <a href="https://twitter.com/intent/follow?screen_name=ankmister">Ankur Garg</a>
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/patmacs.png" alt="Patrick Macom">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          <a href="https://twitter.com/intent/follow?screen_name=patmacs">Patrick Macom</a>
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2024-08-01 00:00:00+00:00" class="md-ellipsis">August 1, 2024</time>
+                      </div>
+                    </li>
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 13h1.5v2.82l2.44 1.41-.75 1.3L15 16.69zm4-5H5v11h4.67c-.43-.91-.67-1.93-.67-3a7 7 0 0 1 7-7c1.07 0 2.09.24 3 .67zM5 21a2 2 0 0 1-2-2V5c0-1.11.89-2 2-2h1V1h2v2h8V1h2v2h1a2 2 0 0 1 2 2v6.1c1.24 1.26 2 2.99 2 4.9a7 7 0 0 1-7 7c-1.91 0-3.64-.76-4.9-2zm11-9.85A4.85 4.85 0 0 0 11.15 16c0 2.68 2.17 4.85 4.85 4.85A4.85 4.85 0 0 0 20.85 16c0-2.68-2.17-4.85-4.85-4.85"/></svg>
+                          <time datetime="2024-09-24 00:00:00+00:00" class="md-ellipsis">September 24, 2024</time>
+                        </div>
+                      </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/identity--authenticity/">Identity &amp; Authenticity</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              27 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+        
+        
+      
+      
+        <a href="../../../../tags/#tag:live-streaming" class="md-tag md-tag-icon">live streaming</a>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+<h1 id="blinky-light-thing-an-approach-for-verifiable-real-time-video">Blinky Light Thing: An Approach for Verifiable Real-Time Video</h1>
+<p>Zeroth Technology, Inc</p>
+<ul>
+<li>James Canterbury</li>
+<li>Patrick Macom</li>
+<li>Ankur Garg</li>
+</ul>
+<p><a href="https://zeroth.technology">https://zeroth.technology</a></p>
+<p>August 1st, 2024</p>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>This white paper introduces the Blinky Light Thingy (BLT), a novel approach for real-time video authentication in live-streaming environments. The BLT embeds cryptographic messages into the physical environment being recorded, making it difficult to modify the video feed in real-time and avoiding the reliance on specialized trusted hardware. This approach addresses the growing challenge of distinguishing between authentic and generative content, particularly in the context of live video streams where it is becoming more common place for someone to "wear" the filter of another person and perpetuate fraud in what is typically considered a trusted environment. By utilizing Ethereum Attestation Services, a "do-it-yourself" hardware device, and open sourced encoding/decoding software, BLT provides a robust method for verifying both the identity of the presenter and the contemporaneousness (real-time nature) of the content.</p>
+<!-- more -->
+
+<h2 id="abstract">Abstract</h2>
+<p>We propose an approach for real-time video authentication in live-streaming environments. The approach, referred to as the BLT, embeds cryptographic messages into the physical environment being recorded, making it difficult to modify the video feed in real-time and avoiding the reliance on specialized trusted hardware. This approach addresses the growing challenge of distinguishing between authentic and generative content, particularly in the context of live video streams where it is becoming more common place for someone to "wear" the filter of another person and perpetuate fraud in what is typically considered a trusted environment. By utilizing Ethereum Attestation Services, a "do-it-yourself" hardware device, and open sourced encoding/decoding software, BLT provides a robust method for verifying both the identity of the presenter and the real-time nature of the content.</p>
+<p><img alt="BLT Overview" src="../../../../BLT_whitepaper/BLT_Overview.png" /></p>
+<h2 id="1-issue">1. Issue</h2>
+<p>The proliferation of deep fake technology and real-time video filters has made it increasingly difficult to trust the authenticity of live video streams. Current methods of verification rely heavily on the reputation of presenters or broadcasters, which can be easily exploited. As deep fake technology advances, there is a pressing need for a system that can verify both the identity of the presenter and the real-time nature of the content.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>  Viewers of live-streaming deep fakes are particularly vulnerable because humans have a tendency to believe what they see and up until this point in our technical development that maxim has typically held true.  Even though the general population is becoming more skeptical of digital content, when faced with real-time decisions of what is true vs. what is not, it has not become a reflex for us to verify; a large contributor to the lack of this reflex is an easy means of doing so.  Consider the scenario of a conference call between you and your banker, perhaps someone you have met in real life several times.  A victim of fraud is much more likely to share private information, or consent to executing a financial transaction, if they are engaged in a video call (e.g., a Zoom meeting) where the person they are talking to looks and sounds like the banker they know and trust.  Consider the same scenario between an individual and a lawyer, a doctor, law enforcement, or a family member.  Not to mention the increasing prevalence of the population who trusts information shared in live-streaming video from our governments, authorities, and social media influencers.</p>
+<p>Live deep fakes are accomplished by applying real-time filters, similar to those used for entertainment purposes where a person might make themselves look like a talking pickle. However, these filters are becoming increasingly sophisticated and can now map the vocal, facial and body movements of an actor onto a model of the target, creating a convincing impersonation. [include references here].  While these filters can predict what a person would look and sound like if they were saying some fictitious content, they cannot predict changes in the physical environment, particularly if those changes are tied to a digital identity and using a method that is extremely unlikely to be predicted.  This weakness provides an opportunity for authentication.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Deep fake video vs. live-streaming deep fakes</em></p>
+<p>We would like to call attention at this point to the differentiation between "live-streaming deep fakes" and deep fake videos that are generated and then later released to the audience.  A video that is recorded first and then released will always be subject to post-recording changes such as video editing, compression, and metadata updates prior to distribution.  Because of these production steps there is a different set of potential authentication methods, such as those laid out by C2PA.org and other video authentication approaches, that are more applicable.  Current solutions to the authentication of live-streaming events (such as pay-per-view boxing or NFL Sunday Football) rely on customized client-server encryption methods - which were developed for the purposes of constraining delivery to paying customers - these also ensure that the content is authentic but are intended for broadcast audiences and require significant IT infrastructure.  The BLT is focused on those video narrowcasts that are to one-on-one or one-to-several streams though. they can be equally applied to one-to-many.</p>
+</div>
+<p>To fully address the issue we analyze the approaches to propagate live deep fakes using the following adversarial model:</p>
+<ol>
+<li><strong>Honest Presenter</strong>: Someone currently live-streaming as themselves.</li>
+<li><strong>Dishonest Presenter</strong>: Someone claiming to be live streaming when in fact the video was prerecorded. And/or someone claiming to be someone else.</li>
+<li><strong>Honest Audience(s)</strong>: One or more people watching the content produced by the presenter.</li>
+<li><strong>Dishonest Audience(s)</strong>: One or more people who claim the content they are consuming is different from what the presenter is producing (less common but included for completeness).</li>
+</ol>
+<p>The BLT is focused on exposing dishonest presenters but it also has the effect of making it difficult for a dishonest audience to change a live-stream that they might have recorded, as discussed in more detail below by adding a closing attestation.</p>
+<h2 id="2-objective">2. Objective</h2>
+<p>The primary objectives of the BLT approach are:</p>
+<ol>
+<li>To provide a reliable method for verifying the identity authenticity of video content producers or presenters.</li>
+<li>To ensure the contemporaneousness of live video streams.</li>
+<li>To create an open source, openly verifiable system that is resistant to real-time video manipulation techniques.</li>
+</ol>
+<h2 id="3-approach">3. Approach</h2>
+<h3 id="31-hardware-components">3.1 Hardware Components</h3>
+<p>The BLT approach introduces cryptographic elements into the physical environment being recorded. This is achieved by:</p>
+<ol>
+<li>Obtaining a unique identifier (UID) from Ethereum Attestation Services (EAS) <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup> which includes specific information about the encrypted message within the live-stream and is signed using the presenter's address.  The creation of a UID is dependent upon the nonce of the block in which it is created, making the UID impossible to predict ahead of time.</li>
+<li>Broadcasting this UID by converting it to a binary string and blinking a light into the physical environment during the live stream.</li>
+<li>Enabling viewers to decode the message and match it to the attestation through pixel analysis.</li>
+</ol>
+<p>This approach makes it extremely difficult to modify the video feed in real-time, as:</p>
+<ul>
+<li>The cryptographic message is embedded in the physical environment itself</li>
+<li>The message is impossible to determine ahead of time as it relies on the blockchain nonce</li>
+<li>The message is cryptographically signed by the presenter using their private wallet address</li>
+</ul>
+<p>Further, by signing an additional closing attestation the presenter can commit a hash of the presented video content to the blockchain (a common method for proving video authenticity post-production), that references the initial UID effectively bookending the broadcast in a way that makes it probabilistically impossible for someone other than the signer to have produced the video broadcast.</p>
+<p>Our approach is guided by the following principles:</p>
+<ol>
+<li>The production of verifiable live-streaming content should be based on public infrastructure (i.e., Ethereum Attestation Services) that is independent of the both the presenter and the audience.</li>
+<li>Verification of live-streaming video must be available to any potential viewer and is strengthened by having multiple independent clients that can verify.</li>
+<li>The methods for embedding and detecting the message should be as simple as possible.</li>
+</ol>
+<h3 id="32-software-components">3.2 Software Components</h3>
+<p>The software component of the BLT system consists of several key elements:</p>
+<ol>
+<li>
+<p><strong>BLT Configuration</strong>: Establishes a baseline of pixel composition to optimize BLT performance.  It utilizes your webcam and is intended to be run before each broadcast session to ensure that your message can be verified by your audience. It leverages the webcam you plan to use to present, and assumes that your background and lighting will not change significantly.  During the configuration test, a predetermined test message is passed to the device and blinked out for detection.  The user has the option to configure the following parameters of the BLT device to optimize the detection rate (or similarity score) of your planned broadcast message:</p>
+<ul>
+<li>Message Color: The color LED selected to represent the message being broadcast.</li>
+<li>Terminator Color: The color LED selected to represent the beginning of the message broadcast or the beginning of a message broadcast chunk.</li>
+<li>Blink Rate: The period for which the message color LED is either lit or unlit (blinked) representing either a 1 or a 0 respectively.</li>
+<li>Message Chunks: A selection of either 1, 2, 4, 8 that indicates the number of "chunks" the broadcast message will be split into.  See <a href="#message-chunking">Message Chunking</a> below for more details.</li>
+</ul>
+<p>The BLT Configuration leverages both the Encoding and Decoding Algorithms to help optimize the detection rate. The output of the configuration test is a baseline RGB representing the average mixture of red, green, and blue pixels of your broadcast when there is no message being blinked.  This assists in the blink detection and the RGB Max filter described in <a href="#blink-detection">Blink Detection</a> below.</p>
+</li>
+<li>
+<p><strong>Wallet Connect</strong>: Provides functionality to connect (or create) a crypto wallet that will be used for the purposes of signing the attestation.  It is important that this wallet address be publicly associated with the presenter as further discussed in <a href="#aliases-and-reputations">Aliases and Reputations</a>.</p>
+</li>
+<li><strong>Create Attestation</strong>: Utilizes Ethereum Attestation Services to create a unique attestation for each broadcast session. The attestation includes the configuration of the BLT device, and a baseline of the red, green, and blue pixels (the RGB baseline). Optional fields include your full name and a description.  As one of the objectives of the BLT is to prove the authenticity of the speaker inclusion of your full name, or the name your audience knows you as, is highly recommended; however, as discussed in <a href="#aliases-and-reputations">Aliases and Reputations</a> below this is optional. The project team has defined schemas on EAS for the BLT on most of their available networks, the appropriate schema can be selected when connecting - alternate schemas can be used as well, and for private broadcasts the attestation can be done off-chain as well.  The unique identification (UID) generated by EAS when the attestation is complete is the message that will be broadcast.  Of critical importance to proving contemporaneousness is the fact that this message is dependant on the nonce of the network which has an extremely low likely hood of being derived ahead of time.</li>
+<li><strong>Encoding Algorithm</strong>: Converts the 64 character hexadecimal Attestation UID into a 256 character binary string (the "encoded message") which can be interpreted as a series of light blinks.  Each bit (blink) of the string is represented by a specific light state (1=on or 0=off) for a defined duration (the blink rate) in a specific message color (red, green, or blue).  To assist in expediency of detecting a blink, and to minimize the effect of synchronization errors, the encoded message is "chunked" in to a set of 2, 4, or 8 substrings. Each substring, including the beginning of a message, is preceded by a "terminator" blink of a specific color that is different than the message color.</li>
+<li><strong>Retrieve Attestation</strong>: Uses the EAS UID generated in the Create Attestation component to access the attestation on EASscan.org and retrieve the BLT configuration which is needed to assist in the detection of the message.  It is important to note a key design decision here - this assumes the presenter is able to share the UID with the audience (this can be done through a link or QR code during the presentation).  This approach effectively gives the expected message to the audience there by letting them verify against something known.  As opposed to trying to detect a full message string without knowing the detected message and verifying later.  This approach lets us work with a confidence interval (represented as a similarity score) which can be used to account for minor changes in the video lighting, video compression, broken feeds, etc.</li>
+<li>
+<p><strong>Parsing Config</strong>: This simply breaks down the returned attestation data from EAS and stores it locally as variables for:</p>
+<ul>
+<li>Message Color</li>
+<li>Terminator Color</li>
+<li>Blink Rate</li>
+<li>RGB Baseline</li>
+</ul>
+</li>
+<li>
+<p><strong>Decoding Algorithm</strong>: Analyzes the video feed by applying an RGB max filter to the live-stream video and taking a sample at a set interval (the sample rate - which must be less than or equal to the blink rate).  This filter maximizes the dominant color in each pixel and reduces the other colors to 0.  For example if a given pixel is R130, G120, B4 the filter will convert it to R255, G0, B0.  The filter baseline is then derived for red, green, and blue by taking the aggregate RGB values in proportion to the number of pixels. Later this RGB baseline is subtracted from the aggregate RGB values for a given sample to determine if there is a "spike" in either the red, green, or blue pixel count.  If no blink is detected it is assumed that the message for that sample is a "0", if a spike is detected in the message color the message for that sample is a "1", if a spike is detected in the terminator color the message for that sample is the first letter of the terminator color (R,G,B).  Each detected message is added to a continuously growing detected message string.  When a terminator color is detected the position in the string is temporarily stored.  When a second terminator message is detected the string between the previous terminator message and the current terminator message is extracted (assuming it is greater than 80% of the expected chunk length).  The detected message chunk is then passed to the verification component and the terminator position is updated.</p>
+</li>
+<li>
+<p><strong>Verification</strong>: Attempts to match the detected message of the live-stream video feed to the expected message of the UID.  To facilitate this the expected message is "expanded" by utilizing the ratio of the "sample rate" at which the streaming video is analyzed to the "blink rate" at which the message is being broadcast (for example, a transmission of '0110' at a blink rate of 100 milliseconds per bit and a sample rate of 50 milliseconds against the live stream video feed would convert to an expanded message of '00111100').   The verification module compares each detected message (the series of 0's and 1's between the terminator blinks) to each "message chunk" of the expected message and returns a similarity score based on how many successful matches to detected blinks versus expected blinks were found.  The verification module uses a "fuzzy similarity matching" based on the Jaccard Similarity approach to also detect nearby matches.  This can be helpful to account for video buffering or compression due to broadcast latency.  A 100% match would indicated an exact mapping to a given message chunk.</p>
+<p>The ultimate goal of the software components is to generate an "authenticity score" that is based on the similarity to scores of each successful chunk match, the order in which the chunks were matched, and the number of times the matching was repeated.  This a high authenticity score indicates a high probability that the message detected in the live video stream is in fact the message being broadcast by the presenter.  Our target is a similarity score of 70% which would require matching 180 bits or more out of 256. The probability of this occurring by chance is approximately 1.52 × 10^-15, which is vanishingly small.</p>
+</li>
+<li>
+<p><strong>Close Live-Stream</strong>: As an optional step when the live stream is complete the presenter can create another attestation (using a different EAS Schema) that references the earlier attestation.  This has the effect of "bookending" the live stream with two attestations.  The presenter has the option to include a hash of the presented stream in the closing attestation which could serve as a convenient starting point for any post-live-stream editing they might do under an attributable video editing scheme like C2PA.org.</p>
+</li>
+</ol>
+<p><img alt="BLT Architecture" src="../../../../BLT_whitepaper/BLT_Architecture.drawio.svg" /></p>
+<h3 id="33-cryptographic-principles">3.3 Cryptographic Principles</h3>
+<p>The BLT approach leverages cryptographic principles to ensure the integrity and authenticity of the broadcast message. The following principles are key to the BLT approach:</p>
+<ol>
+<li><strong>Cryptographic Signature</strong>: The UID generated by Ethereum Attestation Services is cryptographically signed by the presenter's private wallet address. This signature ensures that the UID was generated by the presenter and cannot be tampered with.</li>
+<li><strong>Nonce Dependency</strong>: The UID is dependent on the nonce of the block in which it is created. The nonce is a random number that is generated for each block in the Ethereum blockchain. Since the nonce is not known until the block is mined, the UID cannot be predicted ahead of time.</li>
+<li><strong>Public Infrastructure</strong>: The BLT approach relies on public infrastructure (Ethereum Attestation Services) that is independent of the presenter and the audience. This ensures that the UID is generated in a trustworthy and verifiable manner.</li>
+<li><strong>Open Verification</strong>: Verification of the live-streaming video must be available to any potential viewer. This is strengthened by having multiple independent clients that can verify the broadcast message.</li>
+</ol>
+<h2 id="4-software-design">4. Software Design</h2>
+<p>The software design of the BLT system is based on the following components:</p>
+<ol>
+<li><strong>BLT Configuration</strong>: Establishes a baseline of pixel composition to optimize BLT performance.</li>
+<li><strong>Wallet Connect</strong>: Provides functionality to connect (or create) a crypto wallet that will be used for the purposes of signing the attestation.</li>
+<li><strong>Create Attestation</strong>: Utilizes Ethereum Attestation Services to create a unique attestation for each broadcast session.</li>
+<li><strong>Encoding Algorithm</strong>: Converts the 64 character hexadecimal Attestation UID into a 256 character binary string (the "encoded message") which can be interpreted as a series of light blinks.</li>
+<li><strong>Retrieve Attestation</strong>: Uses the EAS UID generated in the Create Attestation component to access the attestation on EASscan.org and retrieve the BLT configuration which is needed to assist in the detection of the message.</li>
+<li><strong>Parsing Config</strong>: Breaks down the returned attestation data from EAS and stores it locally as variables for the BLT configuration.</li>
+<li><strong>Decoding Algorithm</strong>: Analyzes the video feed by applying an RGB max filter to the live-stream video and taking a sample at a set interval (the sample rate - which must be less than or equal to the blink rate).</li>
+<li><strong>Verification</strong>: Attempts to match the detected message of the live-stream video feed to the expected message of the UID.</li>
+<li><strong>Close Live-Stream</strong>: As an optional step when the live stream is complete the presenter can create another attestation (using a different EAS Schema) that references the earlier attestation.</li>
+</ol>
+<h3 id="message-chunking">Message Chunking</h3>
+<p>A 64 character hexadecimal string converted to a binary string that can be "blinked out" is 256 characters in length plus any terminator signals that might be added.  To match an encoded string to a detected message with 100% similarity, the individual bits must be completely aligned.  There is a <span class="arithmatex">\(1:2^{256}\)</span> probability of a random string matching the encoded message.  However, this can be difficult to do for long strings because the detector may miss the starting point.  To reduce this risk, and to give more frequent feedback on the detection success, an encoded message can be "chunked" into equal substrings of lengths 128, 64, or 32 characters; creating either 1, 2, 4, or 8 chunks.  The drawback of this approach is that when matching a detected chunk to an expected chunk, one must check each chunk for similarity.  Further, because the odds of correctly guessing a binary string scale exponentially as <span class="arithmatex">\(2^{stringLength}\)</span>, having larger chunks is more secure.  However, if it can be shown that a match is made in chunk 1, followed by chunks 2, 3 &amp; 4, it is effectively the same as matching the full 256 length string.</p>
+<h3 id="blink-detection">Blink Detection</h3>
+<p>Blink detection is the identification of a color source in the live-stream video that is produced by either the message color LED or the terminator color LED.  Ideally this detection occurs in the area of the video that is the presenters face which has three benefits.</p>
+<ol>
+<li>It is more difficult to alter the light source on a filter that is changing someone's appearance than it is to alter the light source in the background.</li>
+<li>It allows us to create a smaller canvas to sample from and calculate the RGB levels which makes verification much easier.</li>
+<li>The skin reflectiveness of a presenter does not change often, but the clothes they wear, or the background they are in front of does.  This lets the presenter keep similar configuration setting between multiple live-streams.</li>
+</ol>
+<p>For the purposes of this paper we did this by simply creating a canvas where the presenter's head is.  In future versions we would likely employ face detection software that can isolate the presenters face even further <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">2</a></sup>.  For our filter we chose to apply a simple RGB approach, but this too can be improved in the future by isolating specific tones of to the message and terminator blink colors.</p>
+<p>The below examples show the RGB Max filter applied in different lighting conditions</p>
+<p><img alt="RGB_max_filter_low_light" src="../../../../BLT_whitepaper/RGB_Filter_1.png" />
+<img alt="RGB_max_filter_high_light" src="../../../../BLT_whitepaper/RGB_Filter_2.png" /></p>
+<p>There are 3 additional factors that can be configured in the bLT that assist in optimizing the detection rate of the encoded message.</p>
+<ol>
+<li><strong>LED Intensity</strong>:  This simply modifies how bright the LEDs are which is more of a user preference.  The intensity is highly dependent on the ambient light source.</li>
+<li><strong>Message Color and Terminator Color</strong>: Allowing the user to select both the message color and the terminator color (so long as they are not the same) provides options that account for varying RGB baselines.  Since there is the most sensitivity in detecting the encoded message it is recommended that the least dominant color in the RGB baseline be selected for the message color.  This provides the highest contrast to the other colors.</li>
+<li><strong>Blink Rate</strong>: The blink rate is the duration for which the message color LED will be on to indicate a 1 and off to indicate a 0.  Setting a longer duration allows for more redundancy to occur in the detection, but also effects the amount of time it takes to detect one full message. If the blink rate is too short the verification module may not be able to pull enough samples to detect it.  At a minimum the blink rate must be longer that the frame rate of the live-stream video which is typically 30 frames per second or about 33.33 ms per frame.  This of course is also the minimum sample rate for detection, so we recommend that the minimum blink rate be at least double.  A terminator blink is three successive on blinks of the terminator color.  The terminator is blinked prior to each message chunk.</li>
+</ol>
+<p>The following formula can be used to determine the amount of time it would take to fully transmit a message:</p>
+<div class="arithmatex">\[(256*blinkRate)+(3*blinkRate*messageChunks)\]</div>
+<p>For example, a message split into 4 chunks at a blink rate of 100 ms would take 28.6 seconds.</p>
+<h3 id="aliases-and-reputations">Aliases and Reputations</h3>
+<p>A large part of proving authenticity relies on the fact that the presenter is already known to their audience.  In using a crypto wallet that is owned by the presenter we are able to prove that only them (or whoever has access to the private key for that wallet) is able to generate the EAS UID.  This necessarily ties the presenter to that wallet which may not be desireable in all cases as they can then be publicly linked to the entire history of that wallet.  If the presenter creates a new wallet just for the purposes of presenting then they will need to gain some history in order for their audience to know that wallet is in fact controlled by them.  One way to help mitigate these issues is for the presenter to hold a credential in their wallet that is issued by a trusted third party or is generated by some reputation system such as gitcoin passport.  Adding identity and reputation components to the wallet is beyond the scope of this paper, but is an important factor to consider.</p>
+<h2 id="5-hardware-design">5. Hardware Design</h2>
+<p>The BLT hardware is designed to be simple yet effective.  Our tests have found that using dedicated hardware that has ultra-bright LEDs has a higher success rate of message detection.  However, there is also an available option to use a static website (available on mobile) to make the screen of your phone or monitor blink out the encoded message and the corresponding terminators.  Our experience tells us that while these approaches can be effective, they are quite distracting to the presenter.</p>
+<p>The dedicated hardware consists of:</p>
+<ol>
+<li><strong>Light Source</strong>: A controllable LED or similar light-emitting device.  Our design uses three ultra bright LED - Red, Green, Blue [LED Specs].  Some boards also include a white LED which can help to offset the harshness of the RGB LEDs in some lighting conditions.</li>
+<li><strong>Controller</strong>: A micro controller to manage the light blinking pattern based on the encoded UID.  The controller should be capable of connecting via a bluetooth low energy (BLE) connection to a PC or mobile device (note, iOS prevents the integration of web enabled bluetooth connections without the installation of additional third part softwares.  However, android mobile devices and most desktop web browsers (including those for MacOS) have this capability.  </li>
+<li><strong>Power Supply</strong>: Ensures consistent operation throughout the streaming session.  We recommend a rechargeable LiPo battery that meets the specification for your selected micro controller or two (2) AAA Batteries and a 5v step up converter to power the micro controller and LEDs.  An external v5 Power supply can used if your selected micro controller supports it.</li>
+<li><strong>Switch</strong>: To turn on/off the power to the device.</li>
+<li><strong>Mounting System</strong>: Allows for easy positioning and directing of the light source.</li>
+</ol>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <img src="./BLT_whitepaper/BLT_Circuit3.7v.drawio.svg" alt="BLT Circuit Diagram" style="width: 32%;">
+  <img src="./BLT_whitepaper/BLT%20Case%20Option%202.png" alt="BLT Case Option 2" style="width: 32%;">
+  <img src="./BLT_whitepaper/BLT%20Case%20Option%203.png" alt="BLT Case Option 3" style="width: 32%;">
+</div>
+
+<h2 id="6-build">6. Build</h2>
+<p>The BLT can be constructed using readily available components. A step-by-step guide for building a BLT is in development. Alternatively, pre-built units can be obtained from the project team.</p>
+<p>For those unable to use a dedicated BLT device, a smartphone or computer screen can serve as a substitute light source, although with reduced effectiveness.</p>
+<h2 id="7-results">7. Results</h2>
+<p><img alt="BLT In Real Life" src="../../../../BLT_whitepaper/BLT%20IRL.png" />
+<img alt="BLT In Real Life" src="../../../../BLT_whitepaper/BLT3%20IRL%20.png" />
+Using a BLT device built from an ESP32C microcontroller, a 3.7v LiPo battery, a red, green, and a blue LED and matching resistors as shown in the circuit diagram, we tested the BLT in various lighting conditions and with various configurations.  A test hex string of:</p>
+<blockquote>
+<p>AAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCF0F0F0F0F0F0F0F0FF00FF00FF00FF00</p>
+</blockquote>
+<p>was used, which converts to a binary string of:</p>
+<blockquote>
+<p>1010101010101010101010101010101010101010101010101010101010101010
+1100110011001100110011001100110011001100110011001100110011001100
+1111000011110000111100001111000011110000111100001111000011110000
+1111111100000000111111110000000011111111000000001111111100000000</p>
+</blockquote>
+<p>This string was designed to give a wide variation between rapid blinks (on/off/on/off) and successive blinks (on/on/on/on/off/off/off/off) to determine if the verification module was sensitive enough to capture both.</p>
+<p>A baseline detection was done in an indoor room with steady ambient light (a scenario most likely to be similar to an office or work room).  Using a blink rate of 100 milliseconds, a sample rate of 50 milliseconds, message chunks of 4, the blue LED for the message, and the green LED for the terminator, we were able to achieve a consistent 90+ similarity match across the four chunks. Below is an example output of a verification that ran for about 2 minutes. The message detection rate is a measure of the possible number of messages to be detected in a given time frame vs. the actual number of messages detected (these are reported as X out of X).  Note that if detection of a broadcast message starts midway through a message chunk and ends midway through a message, it may be perfectly reasonable to have "missed" the beginning and ending message chunk; therefore, the target is to detect the total possible message chunks minus 2.</p>
+<p><em>Average Similarity: 0.91</em></p>
+<p><em>Message Detection Rate: 18:20</em></p>
+<table>
+<thead>
+<tr>
+<th>Chunked Message:</th>
+<th>Count</th>
+<th>Similarity</th>
+<th>Message Detection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[1]1010101010101010101010101010101010101010101010101010101010101010</td>
+<td>5</td>
+<td>0.83</td>
+<td>5:5</td>
+</tr>
+<tr>
+<td>[2]1100110011001100110011001100110011001100110011001100110011001100</td>
+<td>5</td>
+<td>0.89</td>
+<td>5:5</td>
+</tr>
+<tr>
+<td>[3]1111000011110000111100001111000011110000111100001111000011110000</td>
+<td>4</td>
+<td>0.94</td>
+<td>4:5</td>
+</tr>
+<tr>
+<td>[4]1111111100000000111111110000000011111111000000001111111100000000</td>
+<td>4</td>
+<td>0.98</td>
+<td>4:5</td>
+</tr>
+</tbody>
+</table>
+<p>In this configuration, the message will broadcast every 26.8 seconds or 4.47 times in two minutes.  Note that chunks 1 and 2 were detected 5 times where as 3 and 4 were detected 4, this indicates that the test was stopped midway through the 5th broadcast.  As out target is a similarity score of .7 or greater this baseline is considered a success.</p>
+<p>Below is a summary of our observations when testing various configurations:</p>
+<ol>
+<li><strong>Lower LED Intensity</strong>: As expected in nearly every scenario this fell below our threshold similarity score with the exception of detecting in a dark room. Conclusion: while a lower intensity is not as distracting to the presenter the results where greatly diminished.  Unless we can enhance the detection through other efficiencies, it is recommended to keep the intensity on high.</li>
+<li><strong>Smaller Chunks</strong>: Increasing the number of chunks to 8 (thereby reducing the chunk length to 32) showed an increase in the average similarity score of 0.05 giving.  The trade off is slightly more processing power as each detected chunk is matched against all chunks in our current verification component.  Conclusion:  More chunks of shorter length seem to be better.  Enhancements to the matching algorithm can be made to look for the next expected chunk first and return if the match is over a certain threshold.</li>
+<li><strong>Larger Chunks</strong>:  Reducing the number of chunks to 2 or 1 (thereby increasing the chunk length to 128 or 256) resulted in less than 50% of the detected strings being of sufficient length to verify resulting in a similarity score of less than 40%.  In addition, because the chunks were so long, missing a terminator had the effect of needing to wait for nearly an entire message transmission.</li>
+<li><strong>Faster Blink Rate</strong>: Reducing the blink rate by 50% (to 50 ms) and reducing the sample rate to 25 ms resulted in a significant drop in similarly score to 50%.  Of specific note was that a number of encoded messages were missed and that the chunk one (consisting of rapid 0101 blinks) was the most likely to be detected.</li>
+<li><strong>Slower Blink Rate</strong>: Blink rates of 200ms and 400ms both returned average similarity scores of 0.96 and 0.98 respectively indicating that longer blinks are easier to detect.  However it was noted that this also increases the time it takes to broadcast an entire message completely, a 400ms takes 1.15 minutes.  Conclusion:  The trade off between a slightly higher similarity score versus a longer message time (and less opportunity for the message to broadcast multiple times) indicates that a slow blink rate should only be used to offset poor lighting conditions.</li>
+<li><strong>Faster Sample Interval</strong>: Reducing the sample interval had the effect of expanding the detected message (similar to increasing the chunk length).  This resulted in less detected messages reaching the minimum length to be matched.  It also introduced more variance detection, for example if lighting conditions caused an increase in green pixels for even a short amount of time the lower sample interval was more likely to pick it up and indicated a false positive termination blink.  Conclusion: In theory a faster sample interval should result in better matches, however we would need to refine our matching algorithm to take this into account.  Considering that faster sample intervals also require more frequent processing this path may not be worth pursuing.</li>
+<li><strong>Different Ambient Lighting Conditions</strong>: Lighting has the single largest effect on the the ability to detect the broadcast message (as expected).  The BLT blinks LEDs that reflect off of the presenters face while presenting.  It follows that high levels of white light also reflecting off of the presenter, or directly shining into the webcam will reduce the detectable blinks.  In stable lighting conditions we found that the BLT could be positioned in such a way that the message can be detected in most scenarios, but in changing lighting conditions (such as outdoors) it was much more difficult.  Similarly different skin reflectivity<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> effects blink detection.  The reflectance of skin varies based on factors like melanin content, blood flow, and hydration levels.  For fun we also tested the BLT in a dark room - the results were a perfect similarity score.  Conclusion: Future enhancements are expected to greatly improve the range of conditions in which the BLT can operate effectively - different configurations discussed in the further explorations below will also have a big impact in neutralizing background light.  However, for the current version it is recommended using the BLT in a room with a slightly lower level of ambient light.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Blink Rate</th>
+<th>Chunk Size</th>
+<th>Sample Rate</th>
+<th>Average Similarity Score</th>
+<th>Message Detection Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline Test</td>
+<td>100 ms</td>
+<td>4 chunks</td>
+<td>50 ms</td>
+<td>0.91</td>
+<td>18:20</td>
+</tr>
+<tr>
+<td>Medium LED Intensity</td>
+<td>100 ms</td>
+<td>4 chunk</td>
+<td>50 ms</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Low LED Intensity</td>
+<td>100 ms</td>
+<td>4 chunks</td>
+<td>50 ms</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Fewer Chunks</td>
+<td>100 ms</td>
+<td>2 chunks</td>
+<td>50 ms</td>
+<td>0.94</td>
+<td>9:10</td>
+</tr>
+<tr>
+<td>More Chunks</td>
+<td>100 ms</td>
+<td>8 chunks</td>
+<td>50 ms</td>
+<td>0.96</td>
+<td>34:40</td>
+</tr>
+<tr>
+<td>Faster Blink Rate</td>
+<td>50 ms</td>
+<td>4 chunks</td>
+<td>50 ms</td>
+<td>0.51</td>
+<td>23:40</td>
+</tr>
+<tr>
+<td>Slower Blink Rate</td>
+<td>400 ms</td>
+<td>4 chunks</td>
+<td>50 ms</td>
+<td>0.97</td>
+<td>10:10</td>
+</tr>
+<tr>
+<td>Faster Sample Detection</td>
+<td>100 ms</td>
+<td>4 chunks</td>
+<td>10 ms</td>
+<td>0.91</td>
+<td>1:20</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-some-things-that-didnt-work">8. Some Things That Didn't Work...</h2>
+<p>In the design of the BLT, we tried several different configurations.  We share them here so that others might avoid them or perhaps see the error in our approach and help correct them.</p>
+<ol>
+<li>Using an infrared LED as the message color.  The intention here was to use an LED color that outside of the visible light spectrum so that the blinking message would be less distracting.  However, this approach violated our principal of not requiring customized hardware to record the video.  Most webcams have an IR filter built in, and in order for this to work well we needed to remove that filter.  While it is true that some IR is detected - we found that it needed to be directly pointed at the webcam and was not sufficient to reflect off of the presenters face.  Further we found that the small amount of IR that was detected is rendered as red in the video which is difficult to detect.</li>
+<li>Using ultra-violet LEDs as the message color.  Along a similar line as the infrared LED, we experienced greater success using the UV LEDs.  But to do so we needed to increase the intensity and this was very visible to both the presenter and the audience.  We also found that that the video renders the UV light as bluish which in effect increases the blue pixel count in our detection module.  After testing different configurations we determined that using a simple blue LED was more effective, and it reduces the risk of the presenter getting sunburn.</li>
+<li>Multiple LEDs configured in different patterns.  We found that this had limited effect on the ability to detect the message other than increasing the intensity.</li>
+<li>Including white LEDs to mute the embedded message.  While this worked to make the blinking LED less distracting it also muted the ability to detect the message.</li>
+<li>Embedding the message in the audio signal as well.  We briefly explored this path and were stifled by the myriad of noise cancelling technology used to clarify audio which were eliminating the frequencies we had tried to broadcast on.  However, there is promise in this approach and it significantly enhances the security of the BLT as it gives a second mode of embedding a message.  For this reason we've included this in the future explorations section below.</li>
+</ol>
+<h2 id="8-further-explorations">8. Further Explorations</h2>
+<p>Future developments and research areas for the BLT system include:</p>
+<ol>
+<li><strong>Enhanced Encoding Techniques</strong>: Exploring more sophisticated methods of embedding information in video streams, where we can make use of correcting and calibration signals so that less information is required to be passed to the detection module.</li>
+<li><strong>Enhanced Detection Techniques</strong>: Application of face detection or more advanced filters to reduce errors in blink detection.  This in effect would allow for a faster blink rate and shorter message duration.</li>
+<li><strong>Custom Lighting Solutions</strong>: Embedding the BLT into lighting solutions (i.e., ring lights, studio lights, etc.) that are commonly used by presenters.  This could in effect allow for the BLT to reflect off of multiple surfaces and make it easier to detect while making it less distracting for the presenter.</li>
+<li><strong>Integration with Existing Platforms</strong>: Developing plugins or APIs for popular video conferencing and streaming platforms.</li>
+<li><strong>Multi-Device Synchronization</strong>: Enabling multiple BLT devices to work in concert for more complex authentication scenarios.</li>
+<li><strong>AI-Resistant Features</strong>: Continuously updating the system to stay ahead of advancements in deep fake technology<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</li>
+<li><strong>Legal and Regulatory Compliance</strong>: Ensuring the BLT system meets emerging standards for video content verification in legal and official contexts.</li>
+</ol>
+<h2 id="process-steps">Process Steps</h2>
+<p>To use the BLT system, follow these steps:</p>
+<ol>
+<li><strong>Connect to BLT</strong>: Establish a connection between your streaming device and the BLT hardware.</li>
+<li><strong>Configure BLT</strong>: Run a configuration test to set a baseline of your pixel composition. This optimizes the BLT performance and should be reset whenever background lighting or clothing changes significantly.</li>
+<li><strong>Create EAS Attestation</strong>: Generate an attestation from an account that is provably yours using Ethereum Attestation Services. This attestation includes the configuration of your BLT.</li>
+<li><strong>Broadcast Your Live-stream</strong>: Begin your live stream with the light from the BLT visible within the frame.</li>
+<li><strong>Verify the Live Stream</strong>: Viewers can use the BLT decoding software to verify the authenticity and contemporaneousness of the stream in real-time.</li>
+</ol>
+<p>Below is a process flow for using the BLT.</p>
+<p><img alt="BLT Process Flow" src="../../../../BLT_whitepaper/BLT_Process_Flow.drawio.svg" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The Blinky Light Thing presents a novel approach to addressing the growing challenge of live-streaming video authentication in the age of deep fakes. By embedding cryptographic messages directly into the physical environment of a video stream, BLT provides a robust method for verifying both the identity of presenters and the real-time nature of content. This approach is unique in that it does not require custom hardware such as attested sensors or specialized cameras (the actual BLT device is simple by comparison). The major drawback to the BLT is that it is distracting to presenters and potentially to audiences.  To some, this may be viewed as a symbol of authenticity, but to most, it is just annoying. To a few, exposure to rapidly blinking lights is dangerous, and we would exercise caution in its use.  We believe that with some modifications, the BLT approach can become less obtrusive and more ubiquitous to streaming communications.  As deep fake technology continues to advance, systems like BLT will play a crucial role in maintaining trust in digital communications.</p>
+<h2 id="references">References</h2>
+<!-- BLOG_GIT_METADATA START -->
+
+<div class="blog-git-metadata" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest);">
+  <details style="background: var(--md-code-bg-color); padding: 0.5rem 1rem; border-radius: 0.2rem;">
+    <summary style="cursor: pointer; font-weight: 500; color: var(--md-default-fg-color--light);">
+      📝 Content Provenance
+    </summary>
+    <div style="margin-top: 1rem; font-size: 0.9em;">
+      <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-09-24</p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-19</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 6</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">5633cf10e46b0a31...</code></p>
+
+      <div style="margin-top: 1rem;">
+        <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
+        <table style="width: 100%; font-size: 0.85em; margin-top: 0.5rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--md-default-fg-color--lightest);">
+              <th style="text-align: left; padding: 0.25rem;">Date</th>
+              <th style="text-align: left; padding: 0.25rem;">Author</th>
+              <th style="text-align: left; padding: 0.25rem;">Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 0.25rem;">2025-09-19</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">Added the github "Content Provenance" onto each...</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2024-11-01</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">posting data asset tokens blog and updates to BLT</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2024-10-08</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">updates to BLT white paper and publish</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top: 1rem; margin-bottom: 0;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/ec5c1a2c349fc4ab14165cffc3542996b70b2911/docs/posts/BLT_whitepaper.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+          View Full History on GitHub →
+        </a>
+      </p>
+    </div>
+  </details>
+
+  <div style="margin-top: 0.5rem; font-size: 0.8em; color: var(--md-default-fg-color--lighter);">
+    <p style="margin: 0;">
+      <em>This metadata provides cryptographic proof of this document's creation and modification history. 
+      The SHA-256 hash can be used to verify the document's integrity, while the Git history shows its evolution over time.</em>
+    </p>
+  </div>
+</div>
+
+<!-- BLOG_GIT_METADATA END -->
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Tolosana, R., Vera-Rodriguez, R., Fierrez, J., Morales, A., &amp; Ortega-Garcia, J. (2020). Deepfakes and Beyond: A Survey of Face Manipulation and Fake Detection. Information Fusion, 64, 131-148. <a href="https://www.sciencedirect.com/science/article/abs/pii/S1566253520303110">https://www.sciencedirect.com/science/article/abs/pii/S1566253520303110</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Viola, P., &amp; Jones, M. (2004). Robust Real-Time Face Detection. International Journal of Computer Vision, 57(2), 137-154. <a href="https://www.face-rec.org/Algorithms/Boosting-Ensemble/16981346.pdf">https://www.face-rec.org/Algorithms/Boosting-Ensemble/16981346.pdf</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Ethereum Attestation Service. (n.d.). EAS Documentation. Retrieved from <a href="https://docs.attest.sh/">https://docs.attest.sh/</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Anderson, R. R., &amp; Parrish, J. A. (1981). The Optics of Human Skin. Journal of Investigative Dermatology, 77(1), 13-19. <a href="https://pubmed.ncbi.nlm.nih.gov/7252245/">https://pubmed.ncbi.nlm.nih.gov/7252245/</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Nguyen, T. T., Nguyen, C. M., Nguyen, D. T., Nguyen, D. T., &amp; Nahavandi, S. (2021). Deep Learning for Deepfakes Creation and Detection: A Survey. Computer Vision and Image Understanding, 203, 103150. <a href="https://www.scirp.org/journal/paperinformation?paperid=109149">https://www.scirp.org/journal/paperinformation?paperid=109149</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="September 20, 2025 12:19:31 UTC">September 20, 2025 12:19:31</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+  
+
+
+
+
+<script src="https://giscus.app/client.js"
+    data-repo="zeroth-tech/blogs"
+    data-repo-id="R_kgDOMJdx4g"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMJdx4s4CgGao"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+</script>
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Zeroth Technology, Inc. All rights reserved. <a href="#__consent">Change cookie settings</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/zeroth-tech" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our blog content and whether readers find what they're searching for. With your consent, you're helping us to make our blog better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="analytics" checked>
+      <span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+  </li>
+
+      
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="github" checked>
+      <span class="task-list-indicator"></span>
+      GitHub
+    </label>
+  </li>
+
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": {"autonomous worlds": "worlds", "supply chain": "supply", "tokenization": "token"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
