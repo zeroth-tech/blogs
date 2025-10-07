@@ -17,7 +17,9 @@ image: images/favicon.png
 description: The barrier to creating convincing deepfakes has vanished. Sora 2's cameo feature makes identity fraud easier than ever. Here's why we should be concerned and what Vero is doing about it.
 ---
 
-# We've Opened Pandora's Box: Why We Should be Concerned About Sora 2
+# Pandora's Box Has Been Open(AI)ed
+
+## Why We Should be Concerned About Sora 2 Cameos
 
 Even though we've seen this train coming, seeing it in action still gives me pause - the moment something becomes "easy," it also becomes dangerous. Over the weekend I started playing around with Sora 2 from OpenAI, and let's just say — this thing is equal parts miracle and nightmare fuel.
 
