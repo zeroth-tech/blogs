@@ -92,7 +92,7 @@ As I discussed in my [last post](where_theres_smoke.md) the answer is not always
 !!! note
     I want to clarify the waters that I may have just muddied with this post... we have been actively marketing Vero as a one-time-biometric and a peer-to-peer authentication approach.  What I just described is *not* that... Avatars don't have biometrics (or do they?).  What I am talking about in this post is an extension of the presenter initiated flow that where I would like to authorize my likeness to be used in a video and where it can be made apparent to many viewers (regardless of the platform) that the likeness was authorized by me.  That is one of the core technical components of Vero.
 
-When we discuss one-time-biometrics and peer-to-peer authentication we are discussing the "verifier initiated flow" of Vero where a verifier wishes to establish trust directly with a presenter.]
+    When we discuss one-time-biometrics and peer-to-peer authentication we are discussing the "verifier initiated flow" of Vero where a verifier wishes to establish trust directly with a presenter.]
 
 ## Closing Thoughts - What This Means for Us
 
@@ -116,3 +116,55 @@ And just because I couldn't resist... here's another one
 
 !!! warning "disclaimer"
     *I do not know Albert Einstein, I've never ridden on his handle bars, I did not get permission to use his likeness, but I also did not upload any media of his likeness as per my user agreement.*
+
+<!-- BLOG_GIT_METADATA START -->
+
+<div class="blog-git-metadata" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest);">
+  <details style="background: var(--md-code-bg-color); padding: 0.5rem 1rem; border-radius: 0.2rem;">
+    <summary style="cursor: pointer; font-weight: 500; color: var(--md-default-fg-color--light);">
+      📝 Content Provenance
+    </summary>
+    <div style="margin-top: 1rem; font-size: 0.9em;">
+      <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2025-10-07</p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-10-07</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 1</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">236c466a27ce447d...</code></p>
+      
+      <div style="margin-top: 1rem;">
+        <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
+        <table style="width: 100%; font-size: 0.85em; margin-top: 0.5rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--md-default-fg-color--lightest);">
+              <th style="text-align: left; padding: 0.25rem;">Date</th>
+              <th style="text-align: left; padding: 0.25rem;">Author</th>
+              <th style="text-align: left; padding: 0.25rem;">Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 0.25rem;">2025-10-07</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">added the Sora 2 article</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p style="margin-top: 1rem; margin-bottom: 0;">
+        <a href="https://github.com/zeroth-tech/blogs/blob/ac6f11cfa42049481ac2f04c7888efaa2d9bdaff/docs/posts/sora_2_pandoras_box.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+          View Full History on GitHub →
+        </a>
+      </p>
+    </div>
+  </details>
+  
+  <div style="margin-top: 0.5rem; font-size: 0.8em; color: var(--md-default-fg-color--lighter);">
+    <p style="margin: 0;">
+      <em>This metadata provides cryptographic proof of this document's creation and modification history. 
+      The SHA-256 hash can be used to verify the document's integrity, while the Git history shows its evolution over time.</em>
+    </p>
+  </div>
+</div>
+
+<!-- BLOG_GIT_METADATA END -->
+
