@@ -109,8 +109,8 @@ We’re just scratching the surface here. In the next post we’ll roll up our s
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2025-07-23</p>
       <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-19</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 4</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">d16319f49c79bf88...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 5</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">f9554de06b7e2b16...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
@@ -138,7 +138,7 @@ We’re just scratching the surface here. In the next post we’ll roll up our s
       </div>
       
       <p style="margin-top: 1rem; margin-bottom: 0;">
-        <a href="https://github.com/zeroth-tech/blogs/blob/ec5c1a2c349fc4ab14165cffc3542996b70b2911/docs/posts/CxU_context_efficiency.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+        <a href="https://github.com/zeroth-tech/blogs/commits/main/docs/posts/CxU_context_efficiency.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
           View Full History on GitHub →
         </a>
       </p>

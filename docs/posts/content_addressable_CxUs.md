@@ -85,8 +85,8 @@ The tools exist. The principles are proven. The question now is whether we'll us
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2025-06-18</p>
       <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-19</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 4</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">0f9602d03b99ac88...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 5</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">d14553b8bb9b4e99...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
@@ -114,7 +114,7 @@ The tools exist. The principles are proven. The question now is whether we'll us
       </div>
       
       <p style="margin-top: 1rem; margin-bottom: 0;">
-        <a href="https://github.com/zeroth-tech/blogs/blob/ec5c1a2c349fc4ab14165cffc3542996b70b2911/docs/posts/content_addressable_CxUs.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+        <a href="https://github.com/zeroth-tech/blogs/commits/main/docs/posts/content_addressable_CxUs.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
           View Full History on GitHub →
         </a>
       </p>

@@ -74,7 +74,7 @@ def run_git_command(args: List[str], cwd: Path = Path(".")) -> Optional[str]:
 
 def get_github_url(file_path: Path, repo_path: Path = Path(".")) -> str:
     """
-    Get GitHub blob URL for a file.
+    Get GitHub commits history URL for a file.
     
     Args:
         file_path: Path to the file
@@ -84,11 +84,13 @@ def get_github_url(file_path: Path, repo_path: Path = Path(".")) -> str:
         GitHub URL string or empty string if unavailable
     """
     try:
-        # Get current commit hash
-        result = run_git_command(["rev-parse", "HEAD"], repo_path)
+        # Get current branch name
+        result = run_git_command(["rev-parse", "--abbrev-ref", "HEAD"], repo_path)
         if not result:
-            return ""
-        current_commit = result.strip()
+            # Fallback to main if HEAD is not available
+            branch = "main"
+        else:
+            branch = result.strip()
         
         # Get remote URL
         result = run_git_command(["config", "--get", "remote.origin.url"], repo_path)
@@ -104,9 +106,9 @@ def get_github_url(file_path: Path, repo_path: Path = Path(".")) -> str:
         if remote_url.endswith('.git'):
             remote_url = remote_url[:-4]
         
-        # Build blob URL
+        # Build commits history URL
         relative_path = file_path.relative_to(repo_path)
-        return f"{remote_url}/blob/{current_commit}/{relative_path}"
+        return f"{remote_url}/commits/{branch}/{relative_path}"
         
     except (ValueError, Exception) as e:
         logger.warning(f"Could not generate GitHub URL for {file_path}: {e}")

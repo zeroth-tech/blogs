@@ -131,8 +131,8 @@ And just because I couldn't resist... here's another one
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2025-10-07</p>
       <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-10-07</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 1</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">236c466a27ce447d...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 5</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">a3aa1116469c59d5...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
@@ -148,6 +148,16 @@ And just because I couldn't resist... here's another one
             <tr>
               <td style="padding: 0.25rem;">2025-10-07</td>
               <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">changed the title</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2025-10-07</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">fixed the admonishment</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.25rem;">2025-10-07</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
               <td style="padding: 0.25rem;">added the Sora 2 article</td>
             </tr>
           </tbody>
@@ -155,7 +165,7 @@ And just because I couldn't resist... here's another one
       </div>
       
       <p style="margin-top: 1rem; margin-bottom: 0;">
-        <a href="https://github.com/zeroth-tech/blogs/blob/ac6f11cfa42049481ac2f04c7888efaa2d9bdaff/docs/posts/sora_2_pandoras_box.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+        <a href="https://github.com/zeroth-tech/blogs/commits/main/docs/posts/sora_2_pandoras_box.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
           View Full History on GitHub →
         </a>
       </p>

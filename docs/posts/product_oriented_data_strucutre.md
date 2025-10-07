@@ -70,8 +70,8 @@ Special thanks to my colleague Akhil Patil for some constructive feedback and ma
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-06-15</p>
       <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-19</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 4</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">62ac47273170f612...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 5</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">4bcf0851a39595ca...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
@@ -99,7 +99,7 @@ Special thanks to my colleague Akhil Patil for some constructive feedback and ma
       </div>
       
       <p style="margin-top: 1rem; margin-bottom: 0;">
-        <a href="https://github.com/zeroth-tech/blogs/blob/ec5c1a2c349fc4ab14165cffc3542996b70b2911/docs/posts/product_oriented_data_strucutre.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
+        <a href="https://github.com/zeroth-tech/blogs/commits/main/docs/posts/product_oriented_data_strucutre.md" target="_blank" style="color: var(--md-primary-fg-color); text-decoration: none;">
           View Full History on GitHub →
         </a>
       </p>
