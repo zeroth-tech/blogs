@@ -1,5 +1,29 @@
 {% extends "base.html" %}
 
+<!-- Open Graph meta tags for social media previews -->
+{% block extrahead %}
+  {{ super() }}
+  {% if page.meta and page.meta.image %}
+  <meta property="og:image" content="{{ config.site_url }}/{{ page.meta.image }}" />
+  <meta property="og:image:type" content="image/png" />
+  <meta name="twitter:image" content="{{ config.site_url }}/{{ page.meta.image }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  {% endif %}
+  {% if page.title %}
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta name="twitter:title" content="{{ page.title }}" />
+  {% endif %}
+  {% if page.meta and page.meta.description %}
+  <meta property="og:description" content="{{ page.meta.description }}" />
+  <meta name="twitter:description" content="{{ page.meta.description }}" />
+  {% endif %}
+  {% if page.canonical_url %}
+  <meta property="og:url" content="{{ page.canonical_url }}" />
+  {% endif %}
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="{{ config.site_name }}" />
+{% endblock %}
+
 <!-- Make the built-in Material theme revision date clickable -->
 {% block content %}
   {{ super() }}

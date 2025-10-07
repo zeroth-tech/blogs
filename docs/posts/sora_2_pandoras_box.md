@@ -13,6 +13,8 @@ tags:
   - sora
   - security
 comments: true
+image: images/vero.svg
+description: The barrier to creating convincing deepfakes has vanished. Sora 2's cameo feature makes identity fraud easier than ever. Here's why we should be concerned and what Vero is doing about it.
 ---
 
 # We've Opened Pandora's Box: Why We Should be Concerned About Sora 2
