@@ -3,7 +3,7 @@ authors:
 - jamescbury
 date:
   created: 2025-10-29
-draft: true
+draft: false
 categories:
 - Agentic AI Research
 tags:
