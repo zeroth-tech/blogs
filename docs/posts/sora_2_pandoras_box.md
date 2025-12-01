@@ -131,8 +131,8 @@ And just because I couldn't resist... here's another one
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2025-10-07</p>
       <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-10-07</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 6</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">98117ddd5ace62c3...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 7</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">fcfa2964e5a681bd...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>

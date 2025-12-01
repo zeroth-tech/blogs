@@ -44,8 +44,8 @@ Can we place a soul bound nft in a wallet that has establishment level  - could 
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2024-06-15</p>
       <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-19</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 6</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">4bddb35b96b1b42a...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 7</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">88bd761e65e077b1...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>

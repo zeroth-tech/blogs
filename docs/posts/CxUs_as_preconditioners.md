@@ -81,9 +81,9 @@ If your prompts keep growing but clarity doesn’t, try this: pick a single work
     </summary>
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2025-10-29</p>
-      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-10-29</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 1</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">e31008219dc7a5b1...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-12-01</p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 2</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">9ce3d48e18ebe7aa...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
@@ -96,6 +96,11 @@ If your prompts keep growing but clarity doesn’t, try this: pick a single work
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td style="padding: 0.25rem;">2025-12-01</td>
+              <td style="padding: 0.25rem;">James Canterbury</td>
+              <td style="padding: 0.25rem;">added community expert post</td>
+            </tr>
             <tr>
               <td style="padding: 0.25rem;">2025-10-29</td>
               <td style="padding: 0.25rem;">James Canterbury</td>

@@ -111,8 +111,8 @@ Where there is smoke, there is safety. And when there is no smoke — that’s w
     <div style="margin-top: 1rem; font-size: 0.9em;">
       <p style="margin: 0.5rem 0;"><strong>Created:</strong> 2025-09-18</p>
       <p style="margin: 0.5rem 0;"><strong>Last Modified:</strong> 2025-09-20</p>
-      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 7</p>
-      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">fdaef2623b7b2a2d...</code></p>
+      <p style="margin: 0.5rem 0;"><strong>Total Revisions:</strong> 8</p>
+      <p style="margin: 0.5rem 0;"><strong>File SHA-256:</strong> <code style="font-size: 0.85em;">9919ee996c4970ee...</code></p>
       
       <div style="margin-top: 1rem;">
         <p style="margin: 0.5rem 0; font-weight: 500;">Recent Changes:</p>
