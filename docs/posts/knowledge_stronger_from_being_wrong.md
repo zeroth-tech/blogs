@@ -29,7 +29,7 @@ We've come to equate knowledge with wikis, and in my experience, most wikis are 
 !!! pyrana "Pyrana → CxUs → CORTEX"
     **Pyrana** ([pyrana.ai](https://pyrana.ai/)) is our governance layer for agentic AI — built around **Context Units (CxUs)**, an immutable atom for enterprise knowledge. **CORTEX** is the newer half: the learning loop around the corpus that turns being-wrong into signal. The forthcoming CORTEX whitepaper covers it in detail.
 
-These aren't malicious lies — just decay. A page written for a workflow that no longer exists. A "single source of truth" that was last updated by someone who left in 2019. A SharePoint folder named *FINAL_v3_USE_THIS_ONE.xlsx*. The most insidious thing about a corporate knowledge base isn't that it fails — it's that it *answers questions* while it fails. The wiki rots quietly while still serving traffic.
+The wikis aren't full of malicious lies — just decay. A page written for a workflow that no longer exists. A "single source of truth" that was last updated by someone who left in 2019. A SharePoint folder named *FINAL_v3_USE_THIS_ONE.xlsx*. The most insidious thing about a corporate knowledge base isn't that it fails — it's that it *answers questions* while it fails. The wiki rots quietly while still serving traffic.
 
 Over the years I've also been fortunate to contribute to the GAMP guidance within ISPE — and that work has shown me this isn't only an enterprise problem. Establishing a corpus of knowledge on behalf of an entire industry is a real discipline; every word will be cited and challenged for years. And yet the central tension is the same one a rotting wiki faces: pragmatic guidance based on our latest thinking versus long-settled practice that has to stand the test of time. Publishing guidance is a monumental effort, and even careful work goes stale faster than the industry it's meant to govern.
 
@@ -45,7 +45,7 @@ And notice what this rules out. A pile of evidence is not an explanation. Deutsc
 
 Taleb sits next to this with the systems vocabulary. His triad: *fragile* things hate volatility, *robust* things tolerate it, *antifragile* things *gain* from it. Bones get denser when you stress them; immune systems sharpen on exposure. A fallibilist system has to be antifragile, because it has to *welcome* the corrections that fallibilism makes inevitable. Most of our KM tools are robust at best — they tolerate updates without breaking. None gain from being wrong.
 
-## Why Our Containers Are Fragile
+## Why Knowledge Management Systems Are Delicate Snowflakes
 
 Most KM systems were built on the opposite theory: that knowledge has a final, canonical form that can be authoritatively recorded, and the tool's job is to keep that record clean. Finalist epistemology produces fragile systems no matter how much engineering you throw at it. Taleb's vocabulary is useful for diagnosing what goes wrong:
 
@@ -61,7 +61,7 @@ These patterns are not bugs in any specific KM tool. They're properties of the *
 
 ## The Atom
 
-A Context Unit is the atom we replaced the wiki page with. One claim. Some supporting context — ideally an explanation of *why the claim is true*, not just a quote that someone said something. A durable identity that can't be silently edited. And enough metadata to argue with: who wrote it, where it came from, what it pertains to.
+A Context Unit is the atom we replaced the discrete pieces of knowledge in a wiki page with. One claim. Some supporting context — ideally an explanation of *why the claim is true*, not just a quote that someone said something. A durable identity that can't be silently edited. And enough metadata to argue with: who wrote it, where it came from, what it pertains to.
 
 That's the whole shape. What matters for this argument isn't the schema — we've shared that in earlier posts and the forthcoming CORTEX whitepaper covers that in detail — it's what the shape lets you do that a wiki page or a doc chunk can't.
 
