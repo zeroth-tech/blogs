@@ -1,0 +1,5 @@
+/* Make long code lines wrap instead of overflowing */
+.md-typeset pre > code {
+  white-space: pre-wrap; /* Preserve formatting but allow wrapping */
+  word-break: break-word; /* Break long words/URLs to fit */
+} 
